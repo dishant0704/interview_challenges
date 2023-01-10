@@ -1,4 +1,16 @@
-
+$border:#cccccc;
+$brderStule: 1px solid $border;
 .cardWrapper{
     margin: 10px;
+    .cardTitle{ font-size: 2rem;}
+    .dFlex{
+        margin: 15px 0px;
+        border-bottom: $brderStule;
+        padding: 10px 0px;
+        img{border: $brderStule}
+        .itemName{
+            font-weight: 600;
+            size: 1.5rem;
+        }
+    }
 }

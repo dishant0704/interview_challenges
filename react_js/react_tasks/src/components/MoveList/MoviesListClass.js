@@ -21,16 +21,27 @@ class MoviesListClass extends React.Component {
                 </div>
                 <div className='row '>
                     <div className="card">
-                        <div className="card-body d-flex flex-row mb-3">
+                        {/* <div className="card-body d-flex flex-row mb-3"> */}
+                        <div className="card-body ">
                             {moviesData.map((movieCat, a) => (
                                 <div key={"con_" + a} className="card col cardWrapper">
                                     <div className="card-body">
-                                        <h5 key={"title_" + a } className="card-title">{movieCat.catName}</h5>
-                                        <ul>
+                                        <h5 key={"title_" + a } className="card-title cardTitle">{movieCat.catName}</h5>
+                                        {/* <ul>
                                         {movieCat.movies.map((movie, b)=>(
                                             <li key={"mov_"+a+"_"+b}>{movie.name}</li>
                                         ))}
-                                        </ul>                                        
+                                        </ul> */}
+                                        {movieCat.movies.map((movie, b)=>(
+                                            <div key={"mov_"+a+"_"+b} className="d-flex align-items-center dFlex ">
+                                                <div className="flex-shrink-0">
+                                                    <img src={movie.img} alt={movie.name} />
+                                                </div>
+                                                <div class="flex-grow-1 ms-3 itemName">
+                                                    {movie.name}
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             ))}
