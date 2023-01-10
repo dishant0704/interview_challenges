@@ -1,0 +1,32 @@
+[
+    {
+        "catName": "Marathi",
+        "movies":[
+            {"name": "Aapdi Thaapdi", "img": "https://m.media-amazon.com/images/S/pv-target-images/a4b0309d26d7abf8e2a6dd143ddf1a6cb6dd66c5ffc27a823275068455deb529._UR1920,1080_UX400_UY225_.png"},
+            {"name": "Sher Shivraj", "img": "https://m.media-amazon.com/images/S/pv-target-images/39c02c639026f548e911068707960ee8281836bde3b6a07eac5fbb87094fc1f2._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Boyz 3", "img": "https://m.media-amazon.com/images/S/pv-target-images/595cb53c11e6daad668a97f13539d030360a9d672bb01893a535093664912b79._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Daagadi Chawl 2", "img": "https://m.media-amazon.com/images/S/pv-target-images/88b8242e7358d6c9ae118938d47cda0935108a229490e8179d788bf5228db862._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Luckdown Be Positive", "img": "https://m.media-amazon.com/images/S/pv-target-images/383e33959a7baf085223bd86ac64969ebe5567ca79ca93f155c32d30d81bf692._UR1920,1080_UX400_UY225_.jpg"}
+        ]
+    },
+    {
+        "catName": "Gujarati",
+        "movies":[
+            {"name": "Dear Father", "img": "https://m.media-amazon.com/images/S/pv-target-images/91af93147109c00d05e4ff63bb9c10316ed4acb3922d3bc353c653dfce658fdd._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Golkeri", "img": "https://m.media-amazon.com/images/S/pv-target-images/9106f4d12f294e5e4f82da82428c3d416eb5a4118f8419b97583791b415bfa0c._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Love Ni Bhavai", "img": "https://m.media-amazon.com/images/S/pv-target-images/4c769ef34755c0d3cabb3a523374a30b621a756069843bed86dc233d6bb3d5a7._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Luv Ni Love Storys", "img": "https://m.media-amazon.com/images/S/pv-target-images/9ced2150ebb73c667b44e8b253f6e56f5f463494c7a3082b84b3f08ac054f775._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Dhunki", "img": "https://m.media-amazon.com/images/S/pv-target-images/3775593bc8bd69655255b3bf640e3748b0dadbf4036ac0137e753f157a01fba4._UR1920,1080_UX400_UY225_.jpg"}
+        ]
+    },
+    {
+        "catName": "Hindi",
+        "movies":[
+            {"name": "Yashoda", "img": "https://m.media-amazon.com/images/S/pv-target-images/81f453a8de24ab534eda169d58e31fdf814cb1978dcb61af5d0fd8123b86a01a._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Flames", "img": "https://m.media-amazon.com/images/S/pv-target-images/8acfa335482a09cc2e3e78282baf6299f012f4c4c9a0b40303d543a94afa8cd1._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Wedding Anniversary", "img": "https://m.media-amazon.com/images/S/pv-target-images/51a6d0b7123d05ae64f8821c5339d608d1d07dc0633a51372485b64fb7d30858._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Chakra", "img": "https://m.media-amazon.com/images/S/pv-target-images/7eb6aa8aa58e36b09b41c909e18d11395befb7447a287d34717bdf133181d7a3._UR1920,1080_UX400_UY225_.jpg"},
+            {"name": "Raazi", "img": "https://m.media-amazon.com/images/S/pv-target-images/2c69ecf2364246f16b4ff521a9848594e359e29b07c3997252616834655cbb8e._UR1920,1080_UX400_UY225_.jpg"}
+        ]
+    }
+]
