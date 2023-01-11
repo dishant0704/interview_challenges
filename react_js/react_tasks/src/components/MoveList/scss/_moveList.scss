@@ -1,5 +1,14 @@
 $border:#cccccc;
 $brderStule: 1px solid $border;
+.searchBar{
+    padding: 0px 10px;
+    margin-bottom: 15px;
+
+    input {
+        width: 100%;
+        padding: .75rem;
+    }
+}
 .cardWrapper{
     margin: 10px;
     .cardTitle{ font-size: 2rem;}
