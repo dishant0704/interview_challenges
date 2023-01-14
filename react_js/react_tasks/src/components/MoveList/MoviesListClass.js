@@ -31,7 +31,7 @@ class MoviesListClass extends React.Component {
             <Fragment>
                 <div className='row text-center'>
                     <h3>List Page</h3>
-                    <p>Here is some text</p>
+                    <p>Class Component, Movies list</p>
                 </div>
                 <div className='row '>
                     <div className="card">

@@ -7,6 +7,7 @@ import CountClass from './components/TasksCounter/CountClass';
 import AxiosClass from './components/TaskAxios/AxiosClass';
 import MoviesListClass from './components/MoveList/MoviesListClass';
 import MoviesListClassIMG from './components/MoveList/MoviesListClassImg';
+import SmallChallenges from './components/SmallChallenges/SmallChallenges';
 
 function App() {
   return (
@@ -36,8 +37,9 @@ function App() {
     <CountFun />
     <CountClass /> 
     <AxiosClass baseURL = "https://lobster-app-ddwng.ondigitalocean.app/product/list" api_key="Z9Q7WKEY7ORGBUFGN3EG1QS5Y7FG8DU29GHKKSZH"/>
-    <MoviesListClassIMG />*/}
-    <MoviesListClass/>
+    <MoviesListClassIMG />
+    <MoviesListClass/>*/}
+    <SmallChallenges />
     </Fragment>
   );
 }
