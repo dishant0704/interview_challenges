@@ -7,36 +7,56 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import './UserList.scss'
-
-const UserForm = ({ addUserPropes,  btnFlagPropes, editUserPropes}) => {
+const UserForm = ({ addUserPropes,  btnFlagPropes, editUserDataPropes, editUserDataProps}) => {
+    const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [year, setYear] = useState("");
     const [color, setColor] = useState("");
     const [pantone_value, setPantoneValue] = useState("");
+    const [btnFlag, setBtnFlag] = useState(false);
 
-    const addUser = () => {
+    useEffect(()=>{
+        setBtnFlag(btnFlagPropes)        
+    },[btnFlagPropes])
 
-        addUserPropes({
-            id: (new Date).getTime(), name, year, color, pantone_value
+    useEffect(()=>{
+        if(editUserDataProps){
+        setId(editUserDataProps.id)
+        setName(editUserDataProps.name)
+        setYear(editUserDataProps.year)
+        setColor(editUserDataProps.color)
+        setPantoneValue(editUserDataProps.pantone_value)
+    }
+    },[editUserDataProps])
 
-        });
+    const resetValue = () =>{
         setName("")
         setYear("")
         setColor("")
         setPantoneValue("")
+        setBtnFlag(false)
     }
 
-    // if(btnFlagPropes){
-    //     setName(editUserPropes.name)
-    //     setYear(editUserPropes.year)
-    //     setColor(editUserPropes.color)
-    //     setPantoneValue(editUserPropes.pantone_value)
-    // }
+    const addUser = () => {
+
+        addUserPropes({
+            id: new Date().getTime(), name, year, color, pantone_value
+
+        });
+        resetValue();        
+    }
+
+    const editUser = () =>{
+        resetValue();
+        editUserDataPropes({
+            id, name, year, color, pantone_value
+        })
+    }
 
     return (
         <div className='row justify-content-md-center userForm'>
             <div className="card col-4">
-                <div className="card-header cardHeader">Add Or Edit User</div>
+                <div className="card-header cardHeader">{!btnFlag? "Add User": "Edite User" }</div>
                 <div className="card-body cardBody">
                     <div className="mb-3">
                         <input key={`formName`} type="text" className="form-control formControl" placeholder="Please Enter Name" value={name} onChange={(e) => setName(e.target.value.toLocaleLowerCase())} />
@@ -46,7 +66,7 @@ const UserForm = ({ addUserPropes,  btnFlagPropes, editUserPropes}) => {
                     </div>
                 </div>
                 <div className="card-footer cardFooter">
-                    {!btnFlagPropes ? <button type="button" className="btn btn-primary" onClick={addUser}>Save</button> : <button type="button" className="btn btn-primary">Update</button>}
+                    {!btnFlag ? <button type="button" className="btn btn-primary" onClick={addUser}>Save</button> : <><button type="button" onClick={editUser} className="btn btn-primary">Update</button> <button type="button" onClick={resetValue} className="btn btn-secondary">Cancel</button></>}
                 </div>
             </div>
         </div>
@@ -58,7 +78,6 @@ const UserList = () => {
     const [users, setUsers] = useState([])
     const [searchUserField, setSearchField] = useState("");
     const [editUser, setEditUser] = useState();
-    const [listRow, setListRow] = useState(true);
     const [editFlag, setEditFlag] = useState(false);
 
     const baseUrl = "https://reqres.in/api/{resource}";
@@ -76,9 +95,6 @@ const UserList = () => {
         getUsers();
     }, [])
 
-
-    const addUser = addUser => setUsers([...users, addUser])
-
     const filterUser = users.filter((user) => {
         return user.name.toLocaleUpperCase().includes(searchUserField)
     })
@@ -91,16 +107,28 @@ const UserList = () => {
     }
 
     const editUserData = user => {
-        const currUser = users.find(currUserData => currUserData.id === user.id)
-        console.log(currUser);
+        const currUser = users.find(currUserData => currUserData.id === user.id)        
         setEditUser(currUser);        
         setEditFlag(true)
+    }
+
+    const addUser = addUser => setUsers([...users, addUser])
+    const updateUser = updatedData => {
+        const updatedUser = users.map((user)=>{
+            if(updatedData.id === user.id){
+                return {...user, id: updatedData.id, name:updatedData.name, year:updatedData.year, color:updatedData.color, pantone_value:updatedData.pantone_value}
+            }
+            return user
+        })
+        setUsers(updatedUser);
+        setEditFlag(false)
+        console.log(updatedUser)
     }
 
     return (
         <Fragment>
             <h2> User list</h2>
-            <UserForm addUserPropes={addUser} editUserPropes={editUserData} btnFlagPropes={editFlag}/>
+            <UserForm addUserPropes={addUser} editUserDataPropes={updateUser} editUserDataProps={editUser} btnFlagPropes={editFlag}/>
             <div className="row row justify-content-md-end">
                 <div className="col-3 justify-content-end">
                     <input
