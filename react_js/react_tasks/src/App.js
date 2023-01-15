@@ -8,12 +8,13 @@ import AxiosClass from './components/TaskAxios/AxiosClass';
 import MoviesListClass from './components/MoveList/MoviesListClass';
 import MoviesListClassIMG from './components/MoveList/MoviesListClassImg';
 import SmallChallenges from './components/SmallChallenges/SmallChallenges';
+import UserList from './components/listAxiox/UserList';
 
 function App() {
   return (
     <Fragment>
       <h1>REACT INTERVIEW CHALLENGES</h1>
-      <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      {/* <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li className="nav-item" role="presentation">
           <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
         </li>
@@ -32,14 +33,16 @@ function App() {
         <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabIndex={0}>profile</div>
         <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabIndex={0}>contact</div>
         <div className="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabIndex={0}>disabled</div>
-      </div>
+      </div> */}
       {/* <TeskDependencies />
     <CountFun />
     <CountClass /> 
     <AxiosClass baseURL = "https://lobster-app-ddwng.ondigitalocean.app/product/list" api_key="Z9Q7WKEY7ORGBUFGN3EG1QS5Y7FG8DU29GHKKSZH"/>
     <MoviesListClassIMG />
-    <MoviesListClass/>*/}
-    <SmallChallenges />
+    <MoviesListClass/>
+    <SmallChallenges />*/}
+    <UserList />
+
     </Fragment>
   );
 }

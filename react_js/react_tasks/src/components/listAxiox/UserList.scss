@@ -1,0 +1,67 @@
+@import url('../../assets/scss/_variable.scss');
+@import url('../../assets/scss/_main.scss');
+
+.searchBar {
+    padding: 0px 10px;
+    margin-bottom: 15px;
+
+    input {
+        width: 100%;
+        padding: .75rem;
+    }
+}
+
+.userForm {
+    .cardHeader {
+        background-color: #fff;
+        color: #333;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    .cardBody {
+        .formControl {
+            margin-bottom: 20px;
+        }
+    }
+
+    .cardFooter {
+        text-align: right;
+    }
+}
+
+
+.table-striped {
+    tbody {
+        tr:nth-of-type(odd)>* {
+            background-color: rgb(37, 37, 37) !important;
+            color: #efefef;
+        }
+
+        .button {
+            background-color: #000;
+            color: #efefef;
+        }
+    }
+
+    tfoot {
+        tr {
+            td {
+                text-align: right;
+                color: #000;
+
+                ul {
+                    li {
+                        list-style: none;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+.listTable {
+    color: #CCC;
+}
