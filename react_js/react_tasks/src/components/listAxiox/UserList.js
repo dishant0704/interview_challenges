@@ -165,11 +165,11 @@ const UserList = () => {
                     ))}
                 </tbody>
                 <tfoot>
-                    <tr>
+                    {/* <tr>
                         <td className="pagNav" scope="row" colSpan={6}>
                             <ul><li>1</li></ul>
                         </td>
-                    </tr>
+                    </tr> */}
                 </tfoot>
             </table>
         </Fragment>

@@ -9,6 +9,7 @@ import MoviesListClass from './components/MoveList/MoviesListClass';
 import MoviesListClassIMG from './components/MoveList/MoviesListClassImg';
 import SmallChallenges from './components/SmallChallenges/SmallChallenges';
 import UserList from './components/listAxiox/UserList';
+import Pagination from './components/Pagination/Pagination';
 
 function App() {
   return (
@@ -40,9 +41,9 @@ function App() {
     <AxiosClass baseURL = "https://lobster-app-ddwng.ondigitalocean.app/product/list" api_key="Z9Q7WKEY7ORGBUFGN3EG1QS5Y7FG8DU29GHKKSZH"/>
     <MoviesListClassIMG />
     <MoviesListClass/>
-    <SmallChallenges />*/}
-    <UserList />
-
+    <SmallChallenges />
+    <UserList />*/}
+    <Pagination baseUrl="https://dummyjson.com/products" pageCount={3} />
     </Fragment>
   );
 }
