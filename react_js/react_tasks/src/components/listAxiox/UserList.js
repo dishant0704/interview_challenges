@@ -80,28 +80,46 @@ const UserList = () => {
     const [editUser, setEditUser] = useState();
     const [editFlag, setEditFlag] = useState(false);
 
+    //paginations
+    const [page, setPage] = useState(1)
+    const firstPage = 1;
+    const [totalPage, setTotalPage] = useState();
+    const [pageCount,setPageCount] = useState();
+    const count = 6;
+
     const baseUrl = "https://reqres.in/api/{resource}";
 
     const getUsers = async () => {
         try {
-            const usersRes = await axios.get(baseUrl).then((responce) => { return responce.data })
+
+            const usersRes = await axios(baseUrl).then((responce) => { return responce.data })
             setUsers(usersRes.data);
+            
         } catch (err) {
             console.log(err.massage)
         }
     }
 
     useEffect(() => {
-        getUsers();
+        getUsers();        
     }, [])
 
+   
+    
+    //Filter Data
     const filterUser = users.filter((user) => {
         return user.name.toLocaleUpperCase().includes(searchUserField)
     })
 
+    useEffect(()=>{ 
+        setPageCount(users.length);
+        const totalPagesCount = Math.ceil(pageCount/count)        
+        setTotalPage(totalPagesCount);  
+    },[filterUser])
+
+    //Delete Data
     const deleteUser = user => {
-        const remUsers = users.filter(currUser => "listRwo_" + currUser.id !== "listRwo_" + user.id)
-        //console.log(remUsers)
+        const remUsers = users.filter(currUser => "listRwo_" + currUser.id !== "listRwo_" + user.id)        
         setUsers(remUsers)
 
     }
@@ -121,8 +139,12 @@ const UserList = () => {
             return user
         })
         setUsers(updatedUser);
-        setEditFlag(false)
-        console.log(updatedUser)
+        setEditFlag(false)        
+    }
+
+    const currentPage = (currPage) => {        
+        if(currPage >=1 && currPage <= totalPage)
+        setPage(currPage);
     }
 
     return (
@@ -141,7 +163,7 @@ const UserList = () => {
             </div>
             <table className="table table-striped listTable">
                 <thead>
-                    <tr>
+                    <tr key={`listRwo_th`}>
                         <th scope="col">Name:</th>
                         <th scope="col">Year</th>
                         <th scope="col">Color</th>
@@ -151,7 +173,7 @@ const UserList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filterUser.map((user) => (
+                    {filterUser.slice(page*count - count, page*count).map((user) => (
                         <Fragment>
                             <tr key={`listRwo_${user.id}`}>
                                 <td scope="row">{user.name}</td>
@@ -165,11 +187,25 @@ const UserList = () => {
                     ))}
                 </tbody>
                 <tfoot>
-                    {/* <tr>
+                    {pageCount > 0 && <tr  key={`listRwo_tr`}>
                         <td className="pagNav" scope="row" colSpan={6}>
-                            <ul><li>1</li></ul>
+                        <nav aria-label="Page navigation example">
+                            <ul className="pagination justify-content-end cosPagination">                            
+                                <li key={`pagNav_Previous`} onClick={() => currentPage(page - 1)} className={page <= firstPage? "page-item disabled pageItem disabledClick": "page-item pageItem"}>
+                                <span className="page-link">Previous</span>
+                                </li>               
+                                {
+                                [...Array(totalPage)].map((_, i)=>{
+                                    let pageNum = i+1;
+                                     return<li className={page == pageNum?"page-item pageItem active" :"page-item pageItem"} onClick={() => currentPage(pageNum)} key={`pagNav_${i}`}><span className="page-link" href="#">{pageNum}</span></li>
+                                })}
+                                <li key={`pagNav_Next`} onClick={() => currentPage(page + 1)} className={page >= totalPage? "page-item pageItem disabled disabledClick": "page-item pageItem"}>
+                                <span className="page-link" href="#">Next{totalPage}</span>
+                                </li>
+                            </ul>
+                        </nav>
                         </td>
-                    </tr> */}
+                    </tr>}
                 </tfoot>
             </table>
         </Fragment>

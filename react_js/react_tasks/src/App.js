@@ -41,9 +41,9 @@ function App() {
     <AxiosClass baseURL = "https://lobster-app-ddwng.ondigitalocean.app/product/list" api_key="Z9Q7WKEY7ORGBUFGN3EG1QS5Y7FG8DU29GHKKSZH"/>
     <MoviesListClassIMG />
     <MoviesListClass/>
-    <SmallChallenges />
-    <UserList />*/}
-    <Pagination baseUrl="https://dummyjson.com/products" pageCount={3} />
+    <SmallChallenges /> 
+    <Pagination baseUrl="https://dummyjson.com/products" pageCount={3} />*/}  
+     <UserList />
     </Fragment>
   );
 }

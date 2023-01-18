@@ -23,8 +23,9 @@ const Pagination = (props) => {
 
     useEffect(()=>{
         setProCount(products.length)
-        setLastPage(proCount / count)      
+        setLastPage(Math.ceil(proCount / count))      
     },[products])
+    
     const currentPage = (currPage) =>{ 
         if(currPage >= firstPage && currPage <=lastPage){
             setPage(currPage)
