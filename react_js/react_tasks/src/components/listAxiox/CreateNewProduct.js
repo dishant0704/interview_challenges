@@ -8,11 +8,13 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import './UserList.scss';
 const UserForm = ({ addUserPropes,  btnFlagPropes, editProductDataPropes, editProductDataProps}) => {
-    const [id, setId] = useState("");
-    const [name, setName] = useState("");
-    const [year, setYear] = useState("");
-    const [color, setColor] = useState("");
-    const [pantone_value, setPantoneValue] = useState("");
+    const [_id, setId] = useState("");
+    const [product_name, setProductName] = useState("");
+    const [original_price, setOriginalPrice] = useState("");
+    const [sale_price, seSalePrice] = useState("");
+    const [product_type, setProductType] = useState("");
+    const [description, setDescription] = useState("");
+    const [date_n_time, setDateTime] = useState("");
     const [btnFlag, setBtnFlag] = useState(false);
 
     useEffect(()=>{
@@ -21,26 +23,30 @@ const UserForm = ({ addUserPropes,  btnFlagPropes, editProductDataPropes, editPr
 
     useEffect(()=>{
         if(editProductDataProps){
-        setId(editProductDataProps.id)
-        setName(editProductDataProps.name)
-        setYear(editProductDataProps.year)
-        setColor(editProductDataProps.color)
-        setPantoneValue(editProductDataProps.pantone_value)
+        setId(editProductDataProps._id)
+        setProductName(editProductDataProps.product_name)
+        setOriginalPrice(editProductDataProps.original_price)
+        seSalePrice(editProductDataProps.sale_price)
+        setProductType(editProductDataProps.product_type)
+        setDescription(editProductDataProps.description)
+        setDateTime(editProductDataProps.date_n_time)
     }
     },[editProductDataProps])
 
     const resetValue = () =>{
-        setName("")
-        setYear("")
-        setColor("")
-        setPantoneValue("")
+        setProductName("")
+        setOriginalPrice("")
+        seSalePrice("")
+        setProductType("")
+        setDescription("")
+        setDateTime("")
         setBtnFlag(false)
     }
 
     const addUser = () => {
 
         addUserPropes({
-            id: new Date().getTime(), name, year, color, pantone_value
+            _id: new Date().getTime(), product_name, original_price, sale_price, product_type, description, date_n_time
 
         });
         resetValue();        
@@ -49,7 +55,7 @@ const UserForm = ({ addUserPropes,  btnFlagPropes, editProductDataPropes, editPr
     const editProduct = () =>{
         resetValue();
         editProductDataPropes({
-            id, name, year, color, pantone_value
+            _id, product_name, original_price, sale_price, product_type, description, date_n_time
         })
     }
 
@@ -59,10 +65,12 @@ const UserForm = ({ addUserPropes,  btnFlagPropes, editProductDataPropes, editPr
                 <div className="card-header cardHeader">{!btnFlag? "Add Product": "Edite Product" }</div>
                 <div className="card-body cardBody">
                     <div className="mb-3">
-                        <input key={`formName`} type="text" className="form-control formControl" placeholder="Please Enter Name" value={name} onChange={(e) => setName(e.target.value.toLocaleLowerCase())} />
-                        <input key={`formYear`} type="text" className="form-control formControl" placeholder="Please Enter Year" value={year} onChange={(e) => setYear(e.target.value.toLocaleLowerCase())} />
-                        <input key={`formColor`} type="text" className="form-control formControl" placeholder="Please Enter color" value={color} onChange={(e) => setColor(e.target.value.toLocaleLowerCase())} />
-                        <input key={`formPantone`} type="text" className="form-control formControl" placeholder="Please Enter Pantone Value" value={pantone_value} onChange={(e) => setPantoneValue(e.target.value.toLocaleLowerCase())} />
+                        <input key={`formProductName`} type="text" className="form-control formControl" placeholder="Please Enter Product Name" value={product_name} onChange={(e) => setProductName(e.target.value.toLocaleLowerCase())} />
+                        <input key={`formOriginalPrice`} type="text" className="form-control formControl" placeholder="Please Enter Original Price" value={original_price} onChange={(e) => setOriginalPrice(e.target.value.toLocaleLowerCase())} />
+                        <input key={`formsale_price`} type="text" className="form-control formControl" placeholder="Please Enter Sale Price" value={sale_price} onChange={(e) => seSalePrice(e.target.value.toLocaleLowerCase())} />
+                        <input key={`formPantone`} type="text" className="form-control formControl" placeholder="Please Enter Product Type" value={product_type} onChange={(e) => setProductType(e.target.value.toLocaleLowerCase())} />
+                        <input key={`formDescription`} type="text" className="form-control formControl" placeholder="Please Enter Description" value={description} onChange={(e) => setDescription(e.target.value.toLocaleLowerCase())} />
+                        <input key={`formDate_n_time`} type="text" className="form-control formControl" placeholder="Please Enter Date & time" value={date_n_time} onChange={(e) => setDateTime(e.target.value.toLocaleLowerCase())} />
                     </div>
                 </div>
                 <div className="card-footer cardFooter">
@@ -174,13 +182,13 @@ const CreateNewProduct = (props) => {
         setEditFlag(true)
     }
 
-    const addUser = addUser => setProducts([...products, addUser])
+    const addProduct = addProduct => setProducts([...products, addProduct])
     const updateUser = updatedData => {
-        const updatedUser = products.map((user)=>{
-            if(updatedData._id === user._id){
-                return {...user, id: updatedData.id, name:updatedData.name, year:updatedData.year, color:updatedData.color, pantone_value:updatedData.pantone_value}
+        const updatedUser = products.map((product)=>{
+            if(updatedData._id === product._id){
+                return {...products, _id: updatedData._id, product_name:updatedData.product_name, original_price:updatedData.original_price, sale_price:updatedData.sale_price, product_type:updatedData.product_type, description:updatedData.description, date_n_time:updatedData.date_n_time}
             }
-            return user
+            return product
         })
         setProducts(updatedUser);
         setEditFlag(false)        
@@ -196,7 +204,7 @@ const CreateNewProduct = (props) => {
     return (
         <Fragment>
             <h2>Create New Product</h2>
-            <UserForm addUserPropes={addUser} editProductDataPropes={updateUser} editProductDataProps={editProduct} btnFlagPropes={editFlag}/>
+            <UserForm addUserPropes={addProduct} editProductDataPropes={updateUser} editProductDataProps={editProduct} btnFlagPropes={editFlag}/>
             <div className="row row justify-content-md-end">
                 <div className="col-3 justify-content-end">
                     <input
