@@ -73,7 +73,7 @@ const UserForm = ({ addUserPropes,  btnFlagPropes, editUserDataPropes, editUserD
     );
 }
 
-const UserList = () => {
+const UserList = (props) => {
 
     const [users, setUsers] = useState([])
     const [searchUserField, setSearchField] = useState("");
@@ -85,9 +85,9 @@ const UserList = () => {
     const firstPage = 1;
     const [totalPage, setTotalPage] = useState();
     const [pageCount,setPageCount] = useState();
-    const count = 6;
+    const count = props.pageCount;
 
-    const baseUrl = "https://reqres.in/api/{resource}";
+    const baseUrl = props.baseUrl;
 
     const getUsers = async () => {
         try {
