@@ -158,9 +158,9 @@ const CreateNewProduct = (props) => {
         setPageInxEnd(endInx)       
     }
     useEffect(()=>{ 
-        setPageCount(products.length);
+        setPageCount(filterUser.length);
         const totalPagesCount = Math.ceil(pageCount/count)        
-        setTotalPage(totalPagesCount); 
+        setTotalPage(totalPagesCount);
         setEndPageInx( page*count);
         setStartPageInx(endPageInx - count);
         pageIndexCal(page);
@@ -250,7 +250,7 @@ const CreateNewProduct = (props) => {
                     <tr key={`listRwo_ftr01`}>
                         <td scope="row" colSpan={9}>{startPageInx + 1} - {endPageInx} of {pageCount}</td>
                     </tr>
-                    <tr key={`listRwo_ftr02`}>
+                    {pageCount > count &&<tr key={`listRwo_ftr02`}>
                         <td className="pagNav" scope="row" colSpan={9}>
                         <nav aria-label="Page navigation example">
                             <ul className="pagination justify-content-end cosPagination">
@@ -274,7 +274,7 @@ const CreateNewProduct = (props) => {
                             </ul>
                         </nav>
                         </td>
-                    </tr>
+                    </tr>}
                 </tfoot>}
             </table>
         </Fragment>
