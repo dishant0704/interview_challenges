@@ -1,6 +1,7 @@
 @import url('../../assets/scss/_variable.scss');
 @import url('../../assets/scss/_main.scss');
 
+.error{color : #cc0000}
 .searchBar {
     padding: 0px 10px;
     margin-bottom: 15px;
@@ -32,6 +33,7 @@
 .table>:not(caption):last-child>*>* {border: 0rem;}
 
 .table-striped {
+    
     tbody {
         tr:nth-of-type(odd)>* {
             background-color: rgb(37, 37, 37) !important;
@@ -62,6 +64,12 @@ ul.pagination{
   
 }
 
+
+
 .listTable {
     color: #CCC;
+    .sortData{
+        cursor: pointer;
+    }
+    
 }

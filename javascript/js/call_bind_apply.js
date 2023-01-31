@@ -8,11 +8,11 @@ function sayHello(age, profession){
 }
 
 //console.log(sayHello.call(obj)) //the object used as the current object
-console.log(sayHello.call(obj, 35, "UI Developer")) //a list of arguments to be passed to the methord.
+//console.log(sayHello.call(obj, 35, "UI Developer")) //a list of arguments to be passed to the methord.
 
 // what is Apply?
 //===============
-console.log(sayHello.apply(obj, [35, "UI Developer"])) //Error: to fixed use Array CreateListFromArrayLike called on non-object
+//console.log(sayHello.apply(obj, [35, "UI Developer"])) //Error: to fixed use Array CreateListFromArrayLike called on non-object
 
 // what is bind?
 //===============
@@ -20,8 +20,8 @@ console.log(sayHello.apply(obj, [35, "UI Developer"])) //Error: to fixed use Arr
 
 const bindfunc = sayHello.bind(obj);
 
-console.log(bindfunc(35, "UI Developer"))
-console.log(bindfunc(55, "UI Designer"))
+// console.log(bindfunc(35, "UI Developer"))
+// console.log(bindfunc(55, "UI Designer"))
 
 // call with function inside object
 //=================================
@@ -37,12 +37,13 @@ var person = {
 };
 
 var person2 = {age: 16};
-console.log(person.getAge.call(person2)) // 16
-console.log(person.getAge.bind(person2)()) // 16
+
+//console.log(person.getAge.call(person2)) // 16
+//console.log(person.getAge.bind(person2)()) // 16
 
 // Explicit Binding with arrow function
 //=====================================
-console.log("Arrow Function");
+//console.log("Arrow Function");
 const age2=10;
 
 var person3 = {
@@ -55,8 +56,8 @@ var person3 = {
 };
 
 var person4 = {age2: 16};
-console.log(person.getAge.call(person4)) // 16
-console.log(person.getAge.bind(person4)()) // 16
+//console.log(person.getAge.call(person4)) // 16
+//console.log(person.getAge.bind(person4)()) // 16
 
 //What is the output?
 //===================
@@ -72,8 +73,8 @@ setTimeout(() =>{
         }
     };
 
-    console.log(date.getStatus()); // "🥑"
-    console.log(date.getStatus.call(this)); // "😎"
+    //console.log(date.getStatus()); // "🥑"
+    //console.log(date.getStatus.call(this)); // "😎"
 
 }, 0);
 
@@ -87,7 +88,7 @@ const animals = [
 
 function printAnimals(i){
     this.print = function(){
-        console.log("#"+i+" "+this.species+": "+this.name);
+        //console.log("#"+i+" "+this.species+": "+this.name);
     };
     this.print();
 }
@@ -104,22 +105,22 @@ const b = ["Bhumi", "Tushal", "Deepak", "Mona"]
 
 a.push.apply(a, b);
 
-console.log(a);
-console.log(a.sort()); //.reverse() and .sort() can use
+// console.log(a);
+// console.log(a.sort()); //.reverse() and .sort() can use
 
 // Find Min and Max number in an array by using Apply
 //===================================================
 
 const number = [5, 7, 95, 2, 87]
 
-console.log(Math.max.apply(null, number)); // 95
-console.log(Math.min.apply(null, number)); // 2
+//console.log(Math.max.apply(null, number)); // 95
+//console.log(Math.min.apply(null, number)); // 2
 
 // Bound function
 //================
 
 function f(){
-    console.log(this) //this refering to window object
+    //console.log(this) //this refering to window object
 }
 
 let user = {
@@ -132,7 +133,7 @@ user.g(); // function f() is window object it will print
 //==============
 
 function e(){
-    console.log(this.name) //this refering to window object
+    //console.log(this.name) //this refering to window object
 }
 
 e = e.bind({name:'Ketan'}).bind({name:'Dishant'}); //Bind Chaining it will print only "Ketan"
@@ -156,19 +157,19 @@ e();
 //     }
 // }
 
-//checkPassWord(user2.loginSuccessful.bind(user2), user2.loginFaild.bind(user2))
+// checkPassWord(user2.loginSuccessful.bind(user2), user2.loginFaild.bind(user2))
 
 //Partial Application for Login function 
 //======================================
 
-let user3 = {
-    name: 'Ketan Sawant',
+// let user3 = {
+//     name: 'Ketan Sawant',
 
-    login(result){
-        console.log(this.name+(result? " login successful" : "login faild"));
-    }
-}
-//checkPassWord(user3.login.bind(user, true), user3.login.bind(user3, false));
+//     login(result){
+//         console.log(this.name+(result? " login successful" : "login faild"));
+//     }
+// }
+// checkPassWord(user3.login.bind(user, true), user3.login.bind(user3, false));
 
 // Polyfill
 //=========
@@ -178,12 +179,10 @@ let car1 = {
 }
 
 function purchaseCar(currency, price) {
-    console.log(
-        `I have purchased ${this.color} - ${this.company} car for ${currency}${price}`
-    );
+    console.log(`I have purchased ${this.color} - ${this.company} car for ${currency}${price}`);
 }
 
-//purchaseCar.call(car1,'$', 2000);
+purchaseCar.call(car1,'$', 2000);// I have purchased Red Frrari car for $2000;
 
 // Polyfill for Call Method 
 //=========================
@@ -230,7 +229,7 @@ Function.prototype.myBind = function (context = {}, ...args){
 }
 
 // const newfunc =  purchaseCar.bind(car1);
-// console.log(newfunc());
+// //console.log(newfunc());
 
 const newfunc =  purchaseCar.myBind(car1, "$", 2000);
 newfunc("$", 2000);
