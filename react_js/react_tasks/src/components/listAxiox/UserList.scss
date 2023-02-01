@@ -1,9 +1,17 @@
 @import url('../../assets/scss/_variable.scss');
 @import url('../../assets/scss/_main.scss');
 
-.error{color : #cc0000}
-.searchBar {
-    padding: 0px 10px;
+$cordBgcolor: #1a1919;
+$error: #cc0000;
+$white: #fff;
+$black: #0000;
+$btnColor: #333;
+$pagNavBtn: #efefef;
+$pagOverBtn: #777676;
+
+.error{color : $error}
+.searchWrapper {
+    padding: 10px 10px;
     margin-bottom: 15px;
 
     input {
@@ -11,23 +19,43 @@
         padding: .75rem;
     }
 }
+
+h4 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 25px 0px;
+}
+.btnPrimary{
+    background-color: $btnColor;
+    border: none;
+    &:hover{
+        background-color: $black;
+    }
+}
+
 .userForm {
-    .cardHeader {
-        background-color: #fff;
-        color: #333;
-        font-weight: 600;
-        font-size: 1.5rem;
-    }
-
-    .cardBody {
-        .formControl {
-            margin-bottom: 20px;
+    .card{
+        background-color: $cordBgcolor;
+        .cardHeader {           
+            color: $white;
+            font-weight: 600;
+            font-size: 1.5rem;
         }
-    }
-
-    .cardFooter {
-        text-align: right;
-    }
+    
+        .cardBody {
+            .errorForm{
+                margin-bottom: 5px;
+                display: block;}
+            .formControl {
+                margin-bottom: 10px;
+            }
+        }
+    
+        .cardFooter {
+            text-align: right;
+            padding: 15px;
+        }
+    }    
 }
 
 .table>:not(caption):last-child>*>* {border: 0rem;}
@@ -50,7 +78,7 @@
         tr {
             td {
                 text-align: right;
-                color: #000;
+                color: $white;
                
             }
         }
@@ -59,8 +87,26 @@
 }
 
 ul.pagination{
-    margin: 1rem 0rem !important;
-    li.pageItem{cursor: pointer;}
+    margin: 1rem 0rem !important;    
+    li.pageItem{
+        cursor: pointer;        
+        span.pageLink{
+            background-color: $cordBgcolor;
+            color: $pagNavBtn;
+            border: none;
+            &:hover{
+               color: $pagOverBtn;
+            }
+        }        
+    }
+    
+    li.active, li.disabledClick{
+        span{            
+            color: $pagOverBtn !important;
+            border: none;
+            cursor: default;
+        }           
+    }
   
 }
 

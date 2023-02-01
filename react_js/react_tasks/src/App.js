@@ -47,7 +47,7 @@ function App() {
     <Pagination baseUrl="https://dummyjson.com/products" pageCount={3} />  
      <UserList baseUrl="https://reqres.in/api/{resource}" pageCount={6} />
      <Challenges />*/}
-     <CreateNewProduct baseUrl="https://lobster-app-ddwng.ondigitalocean.app/product" apiKey = "Z9Q7WKEY7ORGBUFGN3EG1QS5Y7FG8DU29GHKKSZH" pageCount={10} />
+     <CreateNewProduct pageCount={10} />
     </Fragment>
   );
 }
