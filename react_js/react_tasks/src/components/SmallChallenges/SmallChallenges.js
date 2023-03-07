@@ -1,6 +1,7 @@
 
 //Small Reactjs Challenges for Beginners
-import { useState, useEffect } from "react"
+import { useState, useEffect, Fragment } from "react"
+import GSPANN_data from "../MoveList/data/GSPANN_data"
 
 const SmallChallenges = () => {
 
@@ -214,6 +215,38 @@ const SmallChallenges = () => {
         )
     }
 
+    //GSPANN
+    const Challenge_11 = () =>{
+
+        return(
+            <>
+            <p><b>Challenge 11 [GSPANN]</b>: </p>
+            <h3>Export and Read Javascript Object</h3>
+            <h5>{GSPANN_data.name}</h5>
+            <u>
+                {
+                    GSPANN_data.children.map((child, a)=>(
+                        <li key={`child_${a}`}>{child.name}</li>
+                    ))
+                }
+            </u>
+            </>
+        )
+    }
+
+    //even or odd
+    const Challenge_12 = () =>{
+        const [value, setValue] = useState(0)
+        const addVlue = () => setValue(value +1);
+
+        return(
+            <Fragment>
+                <h5>{value} : {value %2 === 0? "Even" : "Odd"}</h5>
+                <button onClick={addVlue}>Add</button>
+            </Fragment>
+        )
+
+    }
     return (
         <>
             <Challenge_01 />
@@ -228,6 +261,8 @@ const SmallChallenges = () => {
             <Challenge_08 />
             <Challenge_09 />
             <Challenge_10 />
+            <Challenge_11 />
+            <Challenge_12/>
         </>
     )
 }

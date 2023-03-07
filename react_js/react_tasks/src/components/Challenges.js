@@ -1,17 +1,13 @@
 
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
+const Challenges = () => {
 
-class Challenges extends React.Component{
-
-    render(){
-        return test()
-    }
-}
-
-const test = () =>{
-
-    
+    return(
+        <Fragment>
+            <h1>Hi</h1>
+        </Fragment>
+    )
 }
 
 export default Challenges;

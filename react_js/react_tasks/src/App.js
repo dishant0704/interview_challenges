@@ -12,6 +12,7 @@ import UserList from './components/listAxiox/UserList';
 import Pagination from './components/Pagination/Pagination';
 import CreateNewProduct from './components/listAxiox/CreateNewProduct';
 import Challenges from './components/Challenges';
+import ListData from './components/ListData';
 
 function App() {
   return (
@@ -42,12 +43,13 @@ function App() {
     <CountClass /> 
     <AxiosClass baseURL = "https://lobster-app-ddwng.ondigitalocean.app/product/list" api_key="Z9Q7WKEY7ORGBUFGN3EG1QS5Y7FG8DU29GHKKSZH"/>
     <MoviesListClassIMG />
-    <MoviesListClass/>
-    <SmallChallenges /> 
+    <MoviesListClass/>    
     <Pagination baseUrl="https://dummyjson.com/products" pageCount={3} />  
      <UserList baseUrl="https://reqres.in/api/{resource}" pageCount={6} />
-     <Challenges />*/}
      <CreateNewProduct pageCount={10} />
+     <SmallChallenges />   
+     <Challenges />*/}
+      <ListData />        
     </Fragment>
   );
 }
