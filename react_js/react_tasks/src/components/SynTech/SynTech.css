@@ -1,0 +1,17 @@
+
+.synTechWrapper{
+    color:#FFF;
+    margin: 10px auto;
+    width: 40%;
+}
+.synTechWrapper h1{
+    color: #a6a6a6;
+    padding: 10px 0px;
+}
+.synTechWrapper h2{
+    color: #a6a6a6;
+    padding: 10px 0px;
+}
+
+.synTechWrapper ul { border: 1px solid #CCCCCC; padding: 10px;}
+.synTechWrapper ul li{list-style: none; padding: 10px 0px;}

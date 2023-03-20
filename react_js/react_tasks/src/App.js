@@ -13,6 +13,10 @@ import Pagination from './components/Pagination/Pagination';
 import CreateNewProduct from './components/listAxiox/CreateNewProduct';
 import Challenges from './components/Challenges';
 import ListData from './components/ListData';
+import Capgemini from './components/Capgemini/Capgemini';
+import {ClassComponent, FunctionComponent} from './components/Class2Function/Class2Function'
+import MobileProg from './components/MobileProg/MobileProg'
+import SynTech from './components/SynTech/SynTech';
 
 function App() {
   return (
@@ -48,8 +52,13 @@ function App() {
      <UserList baseUrl="https://reqres.in/api/{resource}" pageCount={6} />
      <CreateNewProduct pageCount={10} />
      <SmallChallenges />   
-     <Challenges />*/}
-      <ListData />        
+     <Challenges />
+      <ListData />
+      <Capgemini />
+      <ClassComponent />
+      <FunctionComponent />
+      <SynTech />*/}
+      <MobileProg />              
     </Fragment>
   );
 }

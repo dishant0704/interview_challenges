@@ -32,6 +32,10 @@ const children = arr3.concat(arr4, arr5);
 //console.log("===|| three ||===")
 //console.log(children)
 
+const finalArray = arr3.concat(arr4,arr5)
+const sortArray = finalArray.sort()
+console.log(sortArray)
+
 //Q5: Merge two array find max number
 const num01 = [2, 8, 7, 9, 45, 92, 20]
 const num02 = [21, 18, 67, 19, 40, 100, 120]
@@ -376,4 +380,45 @@ const json = {
 }
 const email = json.employees.contact.email
     // console.log("Get the value of email by destructuring");
-    // console.log(email)
+    // console.log(email);
+
+const string = function(){
+
+    const character  = ["A", "B", "C", "D", "E", "F",  "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+    "a", "b", "c", "d", "e", "f",  "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_", "-", "@", "#", "&", "*", "!"," "]
+
+    const encode = function(str){
+        const charArray = [...str]
+        let newString = "";
+        for(var i=0; i<charArray.length; i++){
+            let currCharIndex = character.indexOf(charArray[i])
+            if( currCharIndex > -1){
+                if(currCharIndex < 10){newString = newString+"0"+currCharIndex}else{newString = newString+currCharIndex}
+                
+            }            
+        }
+        return newString;
+    }
+    const decode = function(str){
+        const charArray = [...str]
+        let newString = "";
+        let array = [];
+        let arrEnt = 2
+        let lastEnt = 0;
+        for(var i=0; i<charArray.length; i++){   
+            newString = newString+charArray[i]         
+            if(i > lastEnt){
+                lastEnt = arrEnt+i
+                console.log(i+" == "+lastEnt);
+                array.push(Number(newString));
+                newString =""
+            }
+        }
+        
+        return array;
+    } 
+    return {encode, decode};
+}
+let newString = string()
+console.log(newString.encode("Ketan"));
+console.log(newString.decode("1030452639"));

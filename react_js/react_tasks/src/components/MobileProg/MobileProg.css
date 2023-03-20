@@ -1,0 +1,22 @@
+.mailWrapper{
+    margin: 20px auto;
+    text-align: center;
+}
+.mailWrapper h1{padding: 10px 0px; text-align: center; border-bottom: 1px solid #333;}
+.mailWrapper .headerWrapper {border-bottom: 1px solid #333; padding: 15px 0px;}
+.mailWrapper .headerWrapper .serachWrapper{display: block; clear: both; text-align: left; margin-bottom: 10px;}
+.mailWrapper .bodyWrapper .formfield label, .mailWrapper .headerWrapper .serachWrapper span{display: inline-block; margin-right: 10px;}
+.mailWrapper .bodyWrapper .formfield, .mailWrapper .headerWrapper .serachWrapper input{display: inline-block; margin-right: 10px;}
+.mailWrapper .bodyWrapper .formfield, .mailWrapper .headerWrapper .serachWrapper button{display: inline-block;margin-right: 10px;}
+
+.mailWrapper .headerWrapper .filterWrapper {display: block; clear: both; text-align: left; margin-bottom: 10px;}
+.mailWrapper .headerWrapper .filterWrappe span{display: inline-block; margin-right: 10px;}
+.mailWrapper .headerWrapper .filterWrappe input{display: inline-block; margin-right: 10px;}
+
+.mailWrapper .bodyWrapper{display: block; clear: both; text-align: left;}
+.mailWrapper .bodyWrapper ul {padding: 0px; margin: 0px; border-bottom: 1px solid #333; width: 100%;}
+.mailWrapper .bodyWrapper ul li {list-style: none; padding: 10px 5px; border-bottom: 1px solid #efefef; margin-bottom: 5px; display: flex;}
+.mailWrapper .bodyWrapper ul li div{display: inline-flex; width: 30%;}
+.mailWrapper .bodyWrapper ul li:first-child div{font-weight: bold; border-bottom: 1px solid #333; padding: 20px 0px;}
+.mailWrapper .bodyWrapper .addProduct {border-bottom: 1px solid #333; padding: 10px 5px;}
+.mailWrapper .bodyWrapper .addProduct h3{text-align: left;}
