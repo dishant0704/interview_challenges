@@ -1,32 +1,36 @@
-import React, {useState, useEffect} from "react";
-const Capgemini = () => {
-    const[data, setData] = useState([]);    
-    
-    const fetchData = async (baseURL) => {
-    //    const response = await fetch("https://dummyjson.com/products?limit=100")
-    //    const products = await response.json()
-       const productsRes = await axios(baseURL).then((responce) => { return responce.data })
-       setData(productsRes.products);  
-       return data
-     }  
+import React,{useEffect,useState} from "react"
+import axios from "axios";
 
-    useEffect(()=>{
-        fetchData("https://dummyjson.com/products?limit=100");
-        console.log(data);
-    },[]);
+const Capgemini = () => {
+    const [products, setProducts] = useState([]);
     
-    return(
+     const getProducts = async (baseURL) =>{
+        
+        //Fetch
+        const response = await fetch(baseURL)
+        const productsData = await response.json()
+        
+        //axios
+        // const productsRes = await axios(baseURL).then((responce) => { return responce })
+        // const productsData = productsRes.data.products
+        
+        setProducts(productsData.products);
+      
+    }
+    useEffect(() => {
+        getProducts("https://dummyjson.com/products?limit=100");        
+    }, [])    
+    return (
         <div>
+            <h1>Products List</h1>
             <ul>
-            {/* {
-                data.map((item) => (
-                    <li>{item.title}</li>
-                )                
-                )
-                }; */}
+               { 
+               products.map((item)=>{
+                return <li>{item.title}</li>
+               })               
+               }
             </ul>
         </div>
     )
 }
-
-export default Capgemini
+export default Capgemini;

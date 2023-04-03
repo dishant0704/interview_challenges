@@ -1,0 +1,128 @@
+@import './variable.scss';
+
+.datRangPikWrapper {
+    margin: 20px auto;
+
+    .panelDefault {
+        border: 1px $borderColor solid;
+        margin: 20px auto;
+
+        .panelHeading {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 1px $borderColor solid;
+
+        }
+
+        .panelBody {
+            padding: 15px;
+
+            .datePickerInput {
+                text-align: left;
+                float: left;
+                margin: 10px auto;
+
+                label {
+                    display: block;
+                    font-weight: bold;
+                }
+
+                input {
+                    display: block;
+                }
+
+                .disDataCon {
+                    border: 1px $borderColor solid;
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    width: fit-content;
+                    font-size: 1rem;
+                    line-height: 1.25rem;
+                    vertical-align: middle;
+                }
+
+                .diffDataCon {                    
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    width: fit-content;
+                    font-size: 1rem;
+                    line-height: 1.25rem;
+                    vertical-align: middle;
+                    font-weight: bold;
+                }
+
+                .calendarWrapper {
+                    position: absolute;
+
+                    .panelDefault {
+                        background-color: $panelBgColor;
+                        margin: 2px 0px;
+                        width: 295px;
+                        font-size: .90rem;
+
+                        .panelHeading {
+                            border-bottom: 1px $borderColor solid;
+
+                            .headBtn {
+                                cursor: pointer;
+                                display: block;
+                                padding: 5px 10px;
+                            }
+                        }
+
+                        .panelBody {
+                            border-bottom: 1px $borderColor solid;
+                            .calHedRow{
+                                text-align: center;
+                                &:first-child{font-weight: bold; font-size: .86rem;}
+                                .calHedCol{display: block;}
+                                .calBodyCol{display: block; cursor: pointer;}
+                            }
+                            
+                        }
+
+                        .panelFooter {
+                            padding: 15px;
+                            text-align: left;
+                            font-weight: bold;
+
+                            .footerBtn {
+                                cursor: pointer;
+                                display: block;
+                                padding: 5px 10px;
+                            }
+                            .footerLabel{
+                                vertical-align: middle;
+                                line-height: 2.70rem;
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                    }
+                }
+
+                .icon {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .panelFooter {
+            font-size: .78rem;
+            text-align: right;
+            padding: 15px;
+        }
+    }
+
+    //enable and disable
+    .enabled{
+        pointer-events: all;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.2;
+    }
+}
+

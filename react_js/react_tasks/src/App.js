@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import TeskDependencies from './components/TeskDependencies/TeskDependencies'
-import './App.scss';
+import './App.css';
 import CountFun from './components/TasksCounter/CountFun';
 import CountClass from './components/TasksCounter/CountClass';
 import AxiosClass from './components/TaskAxios/AxiosClass';
@@ -10,13 +10,14 @@ import MoviesListClassIMG from './components/MoveList/MoviesListClassImg';
 import SmallChallenges from './components/SmallChallenges/SmallChallenges';
 import UserList from './components/listAxiox/UserList';
 import Pagination from './components/Pagination/Pagination';
-import CreateNewProduct from './components/listAxiox/CreateNewProduct';
+import CreateNewProduct from './components/listAxiox/UltimezTech';
 import Challenges from './components/Challenges';
 import ListData from './components/ListData';
 import Capgemini from './components/Capgemini/Capgemini';
 import {ClassComponent, FunctionComponent} from './components/Class2Function/Class2Function'
 import MobileProg from './components/MobileProg/MobileProg'
 import SynTech from './components/SynTech/SynTech';
+import DateRangePicker from './components/Mphasis/DateRangePicker';
 
 function App() {
   return (
@@ -50,15 +51,16 @@ function App() {
     <MoviesListClass/>    
     <Pagination baseUrl="https://dummyjson.com/products" pageCount={3} />  
      <UserList baseUrl="https://reqres.in/api/{resource}" pageCount={6} />
-     <CreateNewProduct pageCount={10} />
+     <UltimezTech pageCount={10} />
      <SmallChallenges />   
      <Challenges />
       <ListData />
       <Capgemini />
       <ClassComponent />
       <FunctionComponent />
-      <SynTech />*/}
-      <MobileProg />              
+      <SynTech />
+      <MobileProg /> */}
+      <DateRangePicker />             
     </Fragment>
   );
 }

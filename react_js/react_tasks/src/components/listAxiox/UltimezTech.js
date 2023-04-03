@@ -1,4 +1,5 @@
 /*
+    Ultimez Technology - Reactjs interview schedule @ Sat 7 Jan 2023 11:00 - 12:00 (IST)
     Bonus 1:  Add a button for each user to make a delete request to delete that user. 
     Update the displayed products excluding the deleted user.
 
@@ -128,7 +129,7 @@ const UserForm = ({ addUserPropes, btnFlagPropes, editProductDataPropes, editPro
     );
 }
 
-const CreateNewProduct = (props) => {
+const UltimezTech = (props) => {
 
     const [products, setProducts] = useState([])
     const [searchProductsField, setSearchField] = useState("");
@@ -408,4 +409,4 @@ const CreateNewProduct = (props) => {
     )
 }
 
-export default CreateNewProduct;
+export default UltimezTech;
