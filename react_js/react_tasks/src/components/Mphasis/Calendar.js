@@ -13,15 +13,6 @@ const Calendar = (props) => {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-    const dataStru = {
-        "dateObj":null,
-        "year": null,
-        "month": null,
-        "date": null,
-        "hh": null,
-        "mm": null
-    }    
-
     const[selMonth, setSelMonth] = useState();
     const[selYear, setSelYear] = useState();
     const[selDate, setSelDate] = useState();
@@ -41,8 +32,8 @@ const Calendar = (props) => {
     useEffect(()=>{       
              
        if(selYear && selMonth && selDate){
-        setValue(selYear+"-"+(selMonth)+"-"+selDate);
-        const dateObj = selYear+"-"+(selMonth)+"-"+selDate;
+        setValue(selYear+"-"+(selMonth+1)+"-"+selDate);
+        const dateObj = selYear+"-"+(selMonth+1)+"-"+selDate;
         valueFlag(true);
         flagClose(false);
         
@@ -72,7 +63,7 @@ const Calendar = (props) => {
                     <div className="panel-body panelBody">
                         <CalendarBody dyasArray={days} currMonth={selMonth} currYear={selYear} setSelDate={setSelDate}  />
                     </div>
-                    <div className="panel-footer panelFooter text-center">
+                    {/* <div className="panel-footer panelFooter text-center">
                         <div className="row">
                             <div className="footerLabel col"><FaRegClock /></div>
                             <div className="footerLabel col">hh:</div>
@@ -86,7 +77,7 @@ const Calendar = (props) => {
                                 <FaAngleDown />
                                 </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </Fragment>

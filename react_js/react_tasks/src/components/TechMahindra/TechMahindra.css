@@ -1,0 +1,5 @@
+.userListWrapper{
+    width: 10%;
+    margin: 10px auto;
+}
+.userListWrapper ol li{text-align: left;}

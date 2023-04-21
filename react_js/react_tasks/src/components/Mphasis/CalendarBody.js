@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-import {CalendarContext} from './CalendarContexts'
 
 const CalendarBody = (props) =>{
 
@@ -11,8 +10,8 @@ const CalendarBody = (props) =>{
 
     const [daysCount, setDaysCount] = useState();
     const [startDate, setStartDate] = useState();
-    const [clickedDate, setClickedDate] = useState();
-
+    const [todayConID, setTodayConID] = useState();
+        
     const dyasinMonth = () =>{
         let days =  new Date(year, (month+1), 0).getDate();
         setDaysCount(days)
@@ -20,13 +19,18 @@ const CalendarBody = (props) =>{
 
     const monthStartDate = () =>{
         const startDate = new Date(year+"-"+(month+1)+"-01").getDay();
+        const todayDate = new Date().getDate();
+        const conID = (startDate + todayDate) - 1;
+        setTodayConID(conID);
         setStartDate(startDate);
+        console.log(conID);
     }
 
     useEffect(()=>{
         dyasinMonth();
         monthStartDate();
     },[year, month]) 
+
     
     const getClickDate = (e) =>{
        let currDate = Number(e.target.innerText)
@@ -37,7 +41,7 @@ const CalendarBody = (props) =>{
         var rows = [];
         var id = 0
         var date = 1;
-        var dataFlag = false
+        var dataFlag = false        
         for (var i = 0; i < intRows; i++) {
             var columns = [];
             for (var j = 0; j < intColumns; j++) {
@@ -56,7 +60,7 @@ const CalendarBody = (props) =>{
                             date++
                         }else{dataFlag = false}
                         
-                        column = <div id={"dateId_"+id} className={dataFlag?"col calBodyCol":"col calBodyCol disabled"}><a onClick={getClickDate}>{dateValue}</a></div>
+                        column = <div id={"dateId_"+id} className={dataFlag? todayConID == id? "col calBodyCol active":"col calBodyCol":"col calBodyCol disabled"}><a onClick={getClickDate}>{dateValue}</a></div>
 
                         id++;
                     }
