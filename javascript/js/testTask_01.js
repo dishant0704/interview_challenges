@@ -43,13 +43,39 @@ var merchants = [
   // }
 
   //Approach 02
-  function filterMerchants(filterA, merchants){
-    var filtered = []
-    var keyValue = filterA.toLowerCase();
-    merchants.filter((item) => {if(item.state.toLowerCase() == keyValue) filtered.push(item.name)});
-    merchants.filter((item) => {if(item.products.indexOf(keyValue) > -1) filtered.push(item.name)})
-    return filtered;
-  }
+  // function filterMerchants(filterA, merchants){
+  //   var filtered = []
+  //   var keyValue = filterA.toLowerCase();
+  //   merchants.filter((item) => {if(item.state.toLowerCase() == keyValue) filtered.push(item.name)});
+  //   merchants.filter((item) => {if(item.products.indexOf(keyValue) > -1) filtered.push(item.name)})
+  //   return filtered;
+  // }
+
+  //Approach 03
+  // function filterData(searchText, array){
+  //   const result = array.filter((item)=>item.state === searchText).map((item)=> item.name)
+  //   return result;
+  // }
+
+  //   function filterData(props,searchText, array){
+  //     //const result = array.filter((item)=>item[props] === searchText).map((item)=> item.name)
+  //     let temArray =[]
+  //    array.forEach((item)=>{
+  //        if(Array.isArray(item[props])){
+  //            if(item[props].includes(searchText)){
+  //                temArray.push(item)
+  //            }
+  //        }else{
+  //            temArray = array.filter((item)=>item[props] === searchText)
+  //        }
+  //    })
+  //    return result = temArray.map((item)=> item.name)
+  //   }
+  
+  // console.log(filterData('state','UT', merchants))
+  // console.log(filterData('products','appliance', merchants))
+  // console.log(filterData('products','auto', merchants))
+
   
   
   console.log( filterMerchants( 'UT', merchants ) );

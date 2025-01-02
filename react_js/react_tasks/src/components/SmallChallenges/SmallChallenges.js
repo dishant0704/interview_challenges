@@ -218,35 +218,58 @@ const SmallChallenges = () => {
     //GSPANN
     const Challenge_11 = () =>{
 
-        return(
-            <>
-            <p><b>Challenge 11 [GSPANN]</b>: </p>
-            <h3>Export and Read Javascript Object</h3>
-            <h5>{GSPANN_data.name}</h5>
-            <u>
-                {
-                    GSPANN_data.children.map((child, a)=>(
-                        <li key={`child_${a}`}>{child.name}</li>
-                    ))
-                }
-            </u>
-            </>
-        )
-    }
+        const [childs, setChilds] =useState([])
+      
+      function flattenArray(array) {
+        let temFlattArray = [];
+        function subArray(obj) {
+          obj.map((item) => {
+            if (item.children) subArray(item.children);
+            temFlattArray.push(item.name);
+          });
+        }
+        subArray(array);
+        return temFlattArray;
+      }
+      useEffect(()=>{
+        const childArray = GSPANN_data.children;        
+        setChilds(flattenArray(childArray))
+      },[])
+
+      return (
+        <>
+          <p>
+            <b>Challenge 11 [GSPANN]</b>:{" "}
+          </p>
+          <h3>Export and Read Javascript Object</h3>
+          <h5>Data Name: {GSPANN_data.name}</h5>
+          <u>
+            {childs.map((child, a) => (
+              <li key={`child_${a}`}>{child}</li>
+            ))}
+          </u>
+        </>
+      );
+    };
 
     //even or odd
-    const Challenge_12 = () =>{
-        const [value, setValue] = useState(0)
-        const addVlue = () => setValue(value +1);
+    const Challenge_12 = () => {
+      const [value, setValue] = useState(0);
+      const addVlue = () => setValue(value + 1);
 
-        return(
-            <Fragment>
-                <h5>{value} : {value %2 === 0? "Even" : "Odd"}</h5>
-                <button onClick={addVlue}>Add</button>
-            </Fragment>
-        )
-
-    }
+      return (
+        <Fragment>
+          <p>
+            <b>Challenge 12 [GSPANN]</b>
+          </p>
+          <h3>Even and Odd numbers</h3>
+          <h5>
+            {value} : {value % 2 === 0 ? "Even" : "Odd"}
+          </h5>
+          <button onClick={addVlue}>Add</button>
+        </Fragment>
+      );
+    };
     return (
         <>
             <Challenge_01 />

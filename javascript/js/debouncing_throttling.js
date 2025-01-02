@@ -48,8 +48,7 @@
 
 // btn.addEventListener("click",()=>{    
 //     btnPress.innerHTML = pressedCount++;
-//     throttleCount();
-   
+//     throttleCount();   
 // })
 
 // :: 3 ::
@@ -57,23 +56,26 @@
 //Create Debounce() Polyfill Implementation
 //-----------------------------------------
 
-const btn = document.querySelector(".increment_btn");
-const btnPress = document.querySelector(".increment_pressed");
-const count = document.querySelector(".increment_count");
+// const btn = document.querySelector(".increment_btn");
+// const btnPress = document.querySelector(".increment_pressed");
+// const count = document.querySelector(".increment_count");
+// const header = document.querySelector(".codeTitle");
 
-var pressedCount = 0;
-var triggerCount = 0;
+// header.textContent = "Debounce() Polyfill"
 
-const myDeunceCount = (cb, d) =>{
-    let timer;
-    return function(...args){
-        if(timer) clearTimeout(timer);
-        timer = setTimeout(()=>{
-            cb(...args);
-        },d)
-    }
+// var pressedCount = 0;
+// var triggerCount = 0;
 
- }
+// const myDeunceCount = (cb, d) =>{
+//     let timer;
+//     return function(...args){
+//         if(timer) clearTimeout(timer);
+//         timer = setTimeout(()=>{
+//             cb(...args);
+//         },d)
+//     }
+
+//  }
 
 // const debounceCount =  myDeunceCount(() =>{
 //     count.innerHTML = triggerCount++;
@@ -81,8 +83,7 @@ const myDeunceCount = (cb, d) =>{
 
 // btn.addEventListener("click",()=>{    
 //     btnPress.innerHTML = pressedCount++;
-//     debounceCount();
-   
+//     debounceCount();   
 // })
 
 // :: 4 ::
@@ -93,6 +94,9 @@ const myDeunceCount = (cb, d) =>{
 // const btn = document.querySelector(".increment_btn");
 // const btnPress = document.querySelector(".increment_pressed");
 // const count = document.querySelector(".increment_count");
+// const header = document.querySelector(".codeTitle");
+
+// header.textContent = "Throttle Polyfill"
 
 // var pressedCount = 0;
 // var triggerCount = 0;
@@ -117,6 +121,5 @@ const myDeunceCount = (cb, d) =>{
 
 // btn.addEventListener("click",()=>{    
 //     btnPress.innerHTML = pressedCount++;
-//     throttleCount();
-   
+//     throttleCount();   
 // })

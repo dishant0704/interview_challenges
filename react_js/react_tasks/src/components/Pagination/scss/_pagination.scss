@@ -23,3 +23,8 @@ $brderStule: 1px solid $border;
         }
     }
 }
+.pagination{
+    .page-item{cursor: pointer;}
+    .active .page-link{color:#FFFFFF !important;}
+    .disabled, .active{cursor: default; pointer-events: none;}
+}

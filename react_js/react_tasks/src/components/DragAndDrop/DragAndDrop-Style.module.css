@@ -1,0 +1,31 @@
+
+.mainContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;   
+    padding: 20px;    
+}
+
+button{background-color: #EFEFEF; border: 1px solid #d6d6d6; padding: 10px; cursor: pointer;}
+h1 {padding: 20px 0px; font-size: 1.5rem; font-weight: 600; border-bottom: 1px solid #888; margin: 0px;}
+label{text-transform: capitalize; align-content: center;}
+input{padding: 10px 20px; text-transform: capitalize;}
+.formWrapper, .dragContainer{margin: 20px 0px;  border: 1px solid #888; padding: 20px 10px;}
+.inputGroup{display: flex; gap: 10px;}
+.inputGroup input{flex-grow: 1; padding: 10px 15px;}
+.dragContainer{
+    display:grid;
+    grid-auto-flow: column; 
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));    
+    width: 100vh; 
+    padding: 20px;  
+}
+.searchBar{ display: grid; justify-items: right; padding: 10px 20px;}
+.dragItem, .dropItem{padding: 10px; border: 1px solid #e6e4e4}
+.dragItem .taskItem input[type=text], .dropItem .taskItem input[type=text]{flex-grow: 1;}
+.dragItem .taskItem, .dropItem .taskItem{ display: flex; padding: 10px; border-bottom: 1px solid #d1d0d0; gap: 10px;}
+.dragItem .taskItem label, .dropItem .taskItem label{flex-grow: 1; text-align: left;}
+.dropItem .taskItem input[type="text"]{flex-grow: 1; text-align: left; text-decoration: line-through; }
+.empBtnWrapper{text-align: right; padding: 10px 0px;}
+.empBtnNone{display: none;}

@@ -1,0 +1,75 @@
+
+h1 {font-size: 16px; font-weight: 600; color: #888888; padding: 10px 0px; border-bottom: 1px solid #dad9d9;}
+input, select, button {padding: 10px;  border: 1px solid #dad9d9;}
+select option {padding: 10px;} 
+.error{color: #CC0000;}
+.hiddenInput{
+    opacity:0;
+    padding: 0px;
+    height: 1px;
+}
+.hiddenInput:focus{border: 0px;}
+.border10pxPadding{padding: 10px; border: 1px solid #dad9d9;}
+.formMainWrapper{
+    display: grid;    
+    width: 70vh;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dad9d9;
+    padding: 20px;
+    gap: 15px;
+}
+.formWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(3, 100px); */
+    grid-gap: 10px;
+}
+.inputWrapperSpan2to1{
+    grid-column: 1 / span 2;
+    
+}
+
+.inputWrapper{
+    display: grid;
+}
+
+.radioWrapper{
+    display: flex;
+    gap: 5px;
+}
+.checkWrapper{
+    display: grid;
+    gap: 5px;
+}
+.checkWrapper h1, .radioWrapper h1 {text-align: left;}
+.radioWrapper label, .checkWrapper label{align-content: center;}
+
+.searWrapper{ display: grid; position: relative;}
+.searWrapper .skillSuggestions{
+    margin:0px;  
+    border: 1px solid #dadada;
+    background-color: #fff; 
+    padding: 20px 10px; 
+    display: none; 
+    position: absolute;
+    top: 36PX;
+    left: 0px;
+    z-index: 1;
+}
+.searWrapper .suggestionOpen {display: block; min-width:calc(100% - 22px); max-height: 200px; overflow-y: auto;}
+.searWrapper .suggestionclose {display: none;}
+.searWrapper .suggestionOpen .dropListBtn{padding:10px; text-align: left;}
+/* .searWrapper .suggestionOpen .dropListBtn:hover{background-color: #dadada; cursor: pointer;} */
+.searWrapper .suggestionOpen .active{background-color: #dadada; cursor: pointer;}
+
+.inputWrapper span.error, 
+.checkWrapper span.error, 
+.mainRadioWrapper span.error
+{padding: 10px 0px; display: none;}
+
+.inputWrapper input:invalid[focused="true"] ~ span.error, 
+.checkWrapper input:invalid[focused="true"] ~ span.error, 
+.mainRadioWrapper input:invalid[focused="true"] ~ span.error
+{padding: 10px 0px; display: block;}

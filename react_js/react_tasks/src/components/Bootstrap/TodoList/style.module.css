@@ -1,0 +1,20 @@
+.pageTitle{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px 0px;
+    border-bottom: 1px solid #bbbbbb;
+    margin-bottom: 20px;
+}
+.sectionPart{
+    padding: 20px 0px;
+}
+
+.flex{
+    display: flex;
+    gap: 5px;
+}
+.flex > :first-child{flex-grow: 1;}
+
+.searchBar{text-align: right; margin: 10px 0px;}
+.searchBar input{border:1px solid #bbbbbb; padding: 5px; border-radius: 5px;}
+.searchBar input:focus{border:1px solid #0d6efd;}

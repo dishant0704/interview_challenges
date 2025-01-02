@@ -1,0 +1,2 @@
+.errorMass{display: none;}
+.form input:invalid~span{display: block;}

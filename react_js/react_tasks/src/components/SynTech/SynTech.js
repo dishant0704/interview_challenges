@@ -1,5 +1,6 @@
 //React.js_ Interview Request _ Synechron Technologies_ Ketan Sawant
 //Monday, 27 February⋅17:30 – 18:00
+//print state name, population and patients
 import React from "react";
 import './SynTech.css'
 const SynTech = () => {
@@ -80,12 +81,12 @@ const SynTech = () => {
   ];
 
   var newData = covid_count.map((state) => {
-    let populationData = data.filter((sta) => {
-      if (sta.name === state.name) return sta.population;
-    });
+    let populationData = data.filter((sta) => sta.name === state.name);
+    const {population} = populationData[0] //0: Object { name: "Kolkata", population: 1000, isValid: false }
+    console.log(population);
     let updatedData = {
       name: state.name,
-      population: populationData[0].population,
+      population: population,
       patients: state.patients
     };
     return updatedData;

@@ -1,0 +1,5 @@
+.currencyWrapper{background-color: #858585;}
+.dropWrapper{display: grid;}
+.dropWrapper select{padding-right: 20px;}
+.favoriteBtn{margin-top: 30px; margin-left: 150px; float: right; padding: 5px;}
+.favoriteBtn:focus{outline: none;}

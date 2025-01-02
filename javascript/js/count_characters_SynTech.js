@@ -80,3 +80,16 @@
 
 //Using Map-Reduce in Javascript: counting words in a string.
 
+function countChar(str){
+    let countOfchar = [...str].reduce((acc, curr)=>{
+        if(!acc[curr])acc[curr] = 0;
+        acc[curr]++
+        return acc
+    },{})
+    let formattedObj = Object.keys(countOfchar).map((key)=> key+":"+countOfchar[key])
+    let string = formattedObj.join(", ")
+    return string;
+}
+var string = "dsfaff1131dsfaf3132sdfa"
+console.log(countChar(string));
+

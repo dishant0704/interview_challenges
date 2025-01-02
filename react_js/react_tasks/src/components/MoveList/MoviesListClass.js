@@ -24,7 +24,7 @@ class MoviesListClass extends React.Component {
         const {onSearchChange} = this
 
         const filterMoviesArray = moviesData.filter((movie)=>{
-            return movie.catName.toLocaleLowerCase().includes(searchField);
+            return movie.catName.toLocaleLowerCase().includes(searchField.toLocaleLowerCase());
         });
 
         return (

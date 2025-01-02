@@ -1,0 +1,40 @@
+.mainWrapper{
+    display: grid;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {font-size: 20px; font-weight: 600;border-bottom: 1px solid #cecece; padding: 20px 0px;}
+
+.formSection{
+    display: grid;
+    gap: 20px;
+    width: 40vw;   
+}
+
+.formWrapper{
+   display: grid; 
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+   gap: 10px;    
+   padding: 10px;
+}
+.btnWrapper{text-align: left;}
+input, button{padding: 5px 10px;}
+
+.listWrapper{
+    display: grid;
+    text-align: left;
+}
+.searchBarWrapper {display: flex; justify-content: right; padding: 20px 10px;} 
+
+.listItems{width: 40vw;}
+.listItem{display: flex; padding: 5px 10px; column-gap: 5px; border-bottom: 1px solid #cecece;}
+.imputWrapper{display: grid;}
+.formWrapper .imputWrapper span.error{justify-content: left; color:#CC0000; text-align: justify; padding: 10px; display: none;}
+.formWrapper .imputWrapper input:invalid[focused="true"] ~ span.error {
+    display: block;
+  }
+/* .formWrapper .imputWrapper input:invalid[focused="true"] {border: #CC0000 solid 1px;} */
+.strech{flex-grow: 1; text-align: left;}
+.listItem > *{flex-basis: 15%; }

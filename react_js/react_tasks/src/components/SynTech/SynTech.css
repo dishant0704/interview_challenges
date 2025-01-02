@@ -1,15 +1,14 @@
 
-.synTechWrapper{
-    color:#FFF;
+.synTechWrapper{    
     margin: 10px auto;
     width: 40%;
 }
 .synTechWrapper h1{
-    color: #a6a6a6;
+    color: #858585;
     padding: 10px 0px;
 }
 .synTechWrapper h2{
-    color: #a6a6a6;
+    color: #363636;
     padding: 10px 0px;
 }
 

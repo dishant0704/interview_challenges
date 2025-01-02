@@ -63,7 +63,7 @@ const MobileProg = () => {
     const searchProd = () => {
         if (filterText) {
             //Filter Products
-            const filterProductsData = products.filter((product) => { return product.proName.toLocaleLowerCase().includes(filterText) });
+            const filterProductsData = products.filter((product) => { return product.proName.toLocaleLowerCase().includes(filterText.toLocaleLowerCase()) });
             setFilterProducts(filterProductsData);
             setFilterText('');
         } else {

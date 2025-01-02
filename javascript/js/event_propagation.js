@@ -61,8 +61,8 @@ const button= document.querySelector(".ep_button");
 // What is event delegation?
 // document.querySelector(".products").addEventListener("click", (event)=>{
 
-//     console.log(event.target.tagName)
-//     console.log(event.target.closest("SPAN"));
+// console.log(event.target.tagName)
+// console.log(event.target.closest("SPAN"));
 
 // })
 
@@ -76,7 +76,7 @@ const button= document.querySelector(".ep_button");
 // button.addEventListener("click", function(e){alert("Button")});
 
 // :: 8 :: IMP Q
-//========
+//-----------------------------------------
 // Create a Modal which closes by clicking on negative space.
 
 const container = document.getElementById("myModal");
@@ -95,8 +95,6 @@ closeBtn.addEventListener("click",() => {
 container.addEventListener("click",(event) => {
     if(event.target.className === "modal"){toggleModal(false);}
 });
-
-
 
 //OR
 

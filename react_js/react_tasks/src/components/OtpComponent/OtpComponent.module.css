@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+.container, form{
+    display: grid;
+    align-items: center;
+    align-content: center;
+    width: 60vh;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #858585;
+}
+
+form{border: none; padding: 0;}
+.inputContainer, .btnContainer {display: flex; gap: 10px; margin: 10px auto;}
+
+.inputContainer input{
+    width: 40px;
+    height: 40px;    
+    text-align: center;
+}
+
+.inputContainer input:focus{
+    outline-color:#ff5303;
+}
+
+.inputContainer form input:invalid{outline-color:#CC0000;}
+
+.btnContainer button{
+    border: none;
+    padding: 10px 15px;
+    background-color: #ff5303;
+    color: #FFF;
+    cursor: pointer;
+}
+.error{border: 1px solid #cc0000;}

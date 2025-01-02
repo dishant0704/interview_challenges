@@ -1,0 +1,37 @@
+h1 {font-size: 1.5rem; font-weight: 600;}
+input, button{padding: 10px 20px; border: 1px solid #dadada;}
+button {cursor: pointer;}
+.mainAddSkillWrapper{
+    display: grid;    
+    width: 60vw;
+    margin: 20px auto;    
+    padding: 10px;
+    gap: 10px;
+}
+
+.formWrapper, .skillWrapper, .skillSearchWrapper{        
+    margin: 10px 0px;  border: 1px solid #dadada; padding: 20px 10px;
+}
+.formWrapper form{display: flex; gap: 10px;}
+.formWrapper form input[type="text"]{flex-grow: 1;}
+
+.skillWrapper{display: flex; gap: 10px; flex-wrap: wrap;}
+.skillWrapper .skillItem{ border: 1px solid #dadada;;}
+.skillWrapper .skillItem label, .skillWrapper .skillItem button{padding: 10px; border: none;}
+
+.skillSearchWrapper {display: grid;}
+.skillSearchWrapper .searWrapper{ display: grid; position: relative;}
+.searWrapper .skillSuggestions{
+    margin:0px;  
+    border: 1px solid #dadada;
+    background-color: #fff; 
+    padding: 20px 10px; 
+    display: none; 
+    position: absolute;
+    top: 36PX;
+    left: 0px;}
+.searWrapper .suggestionOpen {display: block; min-width:200px; max-height: 200px; overflow-y: auto;}
+.searWrapper .suggestionclose {display: none;}
+.searWrapper .suggestionOpen .dropListBtn{padding:10px; text-align: left;}
+/* .searWrapper .suggestionOpen .dropListBtn:hover{background-color: #dadada; cursor: pointer;} */
+.searWrapper .suggestionOpen .active{background-color: #dadada; cursor: pointer;}
