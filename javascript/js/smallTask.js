@@ -977,6 +977,15 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 
 // sumOfString2(srt)
 
+//  let srt = '03Ju23st 15te5ll10 12me6 3the ti45me 09f567or 06bu7s'
+//  // sum only numbers
+//  String.prototype.sumNumbers = function(){
+//      const numbers = this.replace(/\D/g, "");
+//      const sum = [...numbers].reduce((acc,cur)=> acc += Number(cur),0)
+//      return sum
+//  }
+// console.log(srt.sumNumbers())
+
 //======= DOB ========//
 
 // var dob = new Date("12/29/1974");
@@ -1042,8 +1051,9 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 // consecutive 1's in binary
 // array arr[0..n-1]
 // function getMaxLength(arr, n) {
-//     // initialize count
-//     let count = 0;
+//     
+//      // initialize count
+//      let count = 0;
 
 //     // initialize max
 //     let result = 0;
@@ -1052,7 +1062,6 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 //         // Reset count when 0 is found
 //         if (arr[i] == 0)
 //             count = 0;
-
 //         // If 1 is found, increment
 //         // count and update result
 //         // if count becomes more.
@@ -1065,6 +1074,24 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 
 //     return result;
 // }
+
+// const array = [1,2,3,4,5,5,5,9,7,9,9,9,9,9]
+// //find the maximum number of consecutive 1s in this array
+// function getMaxNumArray(array){
+//     let count = 0;
+//     let maxCount = 0;
+//     for(var i = 0; i<array.length; i++){
+//         if(array[i] === array[i+1]){
+//             count++
+//         }else{
+//            maxCount = Math.max(maxCount, count)
+//            count = 0;
+//         }
+//     }
+//     return maxCount
+// }
+
+// console.log(getMaxNumArray(array))
 
 // // Driver code
 // let arr = new Array(1, 1, 0, 0, 1, 0,
@@ -1206,7 +1233,7 @@ function capIndex(string){
    return capArray
 }
 
-console.log(capIndex(str))
+console.log(capIndex(str)) // [0,6]
 
 //=======================================
 // Hexaware Technologies -- Technical round of Ketan Sawant
@@ -1221,3 +1248,71 @@ function foo(){
 foo();
 console.log(typeof a) //undefined
 console.log(typeof b) //number
+
+//=======================================
+// Technical Interview - Expert Frontend Developer - Ketan Sawant
+// Monday, 16 June⋅15:00 – 15:30
+// https://www.ciklum.com/
+// HR: pgk@ciklum.com, Pammal:mben@ciklum.com
+//=======================================
+
+//#1.)
+const arr = [1,2,3,4,5]
+console.log(typeof arr) //object
+
+//#2.)
+function wait(delay) {
+ const promiss = new Promise((resolve, reject)=>{
+     setTimeout(()=>{
+         resolve(delay)
+     },delay)
+ })
+ return promiss
+}
+
+wait(1000).then((delay) => console.log(`executed after ${delay} milliseconds`)); // executed after 100 milliseconds //
+
+//=======================================
+// Virtusa-React JS-KETAN SAWANT
+// Monday, 16 June⋅17:00 – 17:30
+//https://www.virtusa.com/our-offices/apac
+// HR: rashmidoshi@virtusa.com, Pammal:vaishalimanvar@virtusa.com
+//=======================================
+
+let s1 = "geeks";  
+let s2 = "kseeg";
+
+function string(str1, str2){
+    let strArray01 = str1.toLowerCase();
+    let strArray02 = str2.toLowerCase();
+    
+    let newStringA = [...strArray01].sort().join("")
+    let newStringB = [...strArray02].sort().join("")
+    
+    if(newStringA === newStringB){
+        return true;
+    }else{
+        return false;
+    }
+}
+console.log(string(s1, s2)) //true
+
+//=======================================
+// Infosys Evaluation for Ketan Sawant (UI/UX + React: Exp - 13 Years)
+// Thursday, 26 June⋅10:00 – 10:30
+// HR: aishwarya.kujur@infosys.com, Pammal:sitara.m@infosys.com
+//=======================================
+
+var add = (a, b=90) => {
+    console.log(a+" "+b)
+}
+add(100) // 100 90
+
+var object = {
+    name: "ketan",
+    address: "Tarsali, Vadodara",
+    cell: 9924297347
+}
+const{name, ...remaining} = object;
+console.log(name)
+console.log(remaining) //{ address: 'Tarsali, Vadodara', 'cell no.': 9924297347 }

@@ -8,14 +8,16 @@
 //6. Write a piece of code for the following problem and analyze its complexity:
 //Given an array of distinct integers and a target sum, find two numbers in the array that add up to the target sum.
 function findTwoSum(nums, target) {
+  let retuenArray = [];
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       console.log(i + " : " + j);
       if (nums[i] + nums[j] == target) {
-        return [nums[i], nums[j]];
+        retuenArray.push([nums[i], nums[j]]);
       }
     }
   }
+  return retuenArray;
 }
 
 console.log(findTwoSum([7, 11, 15, 2], 26));
@@ -178,9 +180,9 @@ const books = [
 ];
 
 function printText(array){
- const ids = array.map(({ title }) => title);
+ const titleArray = array.map(({ title }) => title);
   const filtered = array.filter(({ title }, index) =>
-  !ids.includes(title, index + 1));
+  !titleArray.includes(title, index + 1));
   // sort title
   filtered.sort((a, b)=>a.title - b.title)
   return filtered
