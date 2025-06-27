@@ -1,0 +1,3 @@
+@use '../../../styles/base/colors.scss' as stylesColor;
+
+.active{color: stylesColor.$base-error-color; font-weight: bold;}

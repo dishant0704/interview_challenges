@@ -3,7 +3,6 @@ button{background-color: transparent; border: 1ps solid #efefef; color: #333333;
 .increment,.count, .decrement{ padding: 5px 10px;}
 
 .form{display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;}
-.redFormfild{display: grid;}
 
 .listWrapper{margin: 0px; padding: 0px;}
 .listWrapper li {list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 5px; margin: 10px 0px; padding: 5px 0px; border-bottom: solid #8888 1px;}

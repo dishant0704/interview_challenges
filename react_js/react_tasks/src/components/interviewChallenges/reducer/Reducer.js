@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useReducer, } from "react";
 import "./reducer.css";
-import Form from "../form/Form";
+import TextBox from "../form/TextBox";
 
 const Reducer = () => {
   
@@ -17,7 +17,7 @@ const Reducer = () => {
   const ACTION = {    
     ADDUSER: "addUser",
     DETELEUSER: "deleteUser",
-    EDITUSER: "editUser",
+    EDITUSER: "editUser"
   };
 
   const userReducer = (state, action) => {
@@ -28,10 +28,7 @@ const Reducer = () => {
       case ACTION.DETELEUSER:
         return state.filter((user) => user.id !== action.payload.id);
       case ACTION.EDITUSER:
-        return state.map((user) =>{ 
-          if(user.id === action.payload.id) user = action.payload
-          return user
-        });      
+        return state.filter((user) => user.id === action.payload.id);        
       default:
         return state;
     }
@@ -45,7 +42,6 @@ const Reducer = () => {
       placeholder: "First Name",
       label: "First Name",
       required:true,
-      cssClass:"redFormfild",
       pattern:"^[A-Za-z0-9]$",
       errorMassage:'First name required'
     },
@@ -56,7 +52,6 @@ const Reducer = () => {
       placeholder: "Last Name",
       label: "Last Name",
       required:true,
-      cssClass:"redFormfild",
       pattern: "^[A-Za-z0-9]$",
       errorMassage: 'last name required'
     },
@@ -64,7 +59,6 @@ const Reducer = () => {
       id:2,
       type: "date",
       name: "bdate",
-      cssClass:"redFormfild",
       placeholder: "Birthe Date",
       label: "Birthe Date",      
     },
@@ -75,18 +69,15 @@ const Reducer = () => {
       placeholder: "Email",
       label: "Email",
       required:true,
-      cssClass:"redFormfild",
-      pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,4}$",
       errorMassage: 'It should be a valid email address!'
     },
     {
       id:4,
       type: "number",
-      name: "age",
+      name: "number",
       placeholder: "Age",
       label: "Age",
       required:true,
-      cssClass:"redFormfild",
       pattern:"^[0-9]$",
       errorMassage: 'Age required'
     },    
@@ -97,7 +88,6 @@ const Reducer = () => {
       placeholder: "City",
       label: "City",
       required:true,
-      cssClass:"redFormfild",
       pattern:"^[A-Za-z0-9]$",
       errorMassage: 'City required'
     }    
@@ -106,57 +96,42 @@ const Reducer = () => {
   //dispatch 
   const [userstate, userDispatch] = useReducer(userReducer, []);
   const [newData, setNewData]=useState(defultUserData)
-  const [editFlag, setEditFlag] = useState(false)
  
   const heanderSubmit = (e)=>{
-    e.preventDefault()
-    //const Data = new FormData(e.target)
-    if(editFlag){
-      userDispatch({type: ACTION.EDITUSER, payload:newData})
-    }else{
-      userDispatch({type: ACTION.ADDUSER, payload:newData});
-    }    
-    
+    e.preventDefault()    
+    userDispatch({type: ACTION.ADDUSER, payload:newData});
     setNewData({
       id:"",
       fname:"",
       lname:"",
-      bdate:"",
-      email:"",
       age:"",
       city:""
     }) 
-    e.target.reset();
-    setEditFlag(false)        
+    e.target.reset();        
   }
-  const editData = (id) =>{
-    const currData = userstate.filter((item)=>item.id === id )[0]  
-    setNewData(currData)
-    setEditFlag(true)
+  const onChange = (e) =>{
+    setNewData({...newData, [e.target.name]: e.target.value})
   }
- // console.log("newData",userstate[0])
- 
-
+  console.log("userstate",userstate)
   return (
     <Fragment>
       <div className="pageWrapper">        
         <h2 className="pageTitle">Add User</h2>
-        <Form className="form clo" onSubmit={heanderSubmit} fildData = {inputs} setData={setNewData} priData = {newData} btnFlag={editFlag}/> 
-        {/* <form className="form clo" onSubmit={heanderSubmit} autoComplete="off">
-             {/* <input name="fname" onChange={(e)=>newData.fname = e.target.value} placeholder="First Name"></input>
+        <form className="form clo" onSubmit={heanderSubmit}>
+            {/* <input name="fname" onChange={(e)=>newData.fname = e.target.value} placeholder="First Name"></input>
             <input name="lname" onChange={(e)=>newData.lname = e.target.value} placeholder="Last Name"></input>
             <input name="age" onChange={(e)=>newData.age = e.target.value} placeholder="Age"></input>
-            <input name="city" onChange={(e)=>newData.city = e.target.value} placeholder="City"></input> 
+            <input name="city" onChange={(e)=>newData.city = e.target.value} placeholder="City"></input> */}
             {
               inputs.map((input)=><TextBox key={input.id} {...input} onChange={onChange} />)
               
             }
             <button>Submit</button>
-        </form>*/}
+        </form>
         {userstate.length>0?<><h2 className="pageTitle">User list</h2><ul className="listWrapper">
           {userstate.map((data, i) => {
             const { fname, lname, id } = data;
-            return <li key={i} className="listItem"><div>{fname} {lname}</div><div><button onClick={()=>userDispatch({type: ACTION.DETELEUSER, payload:{id:id}})}>Delete</button></div><div><button onClick={()=>editData(id)}>Edit</button></div></li>;
+            return <li key={i} className="listItem"><div>{fname} {lname}</div><div><button onClick={()=>userDispatch({type: ACTION.DETELEUSER, payload:{id:id}})}>Delete</button></div><div><button onClick={()=>userDispatch({type: ACTION.EDITUSER, payload:{id:id}})}>Edit</button></div></li>;
           })}
         </ul></>
         : null}
