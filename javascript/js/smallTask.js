@@ -1024,7 +1024,6 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 
 //L1 Interview with GS Lab | GAVS!
 //Wednesday, September 25 17:00 – 18:00
-// HR isha.limaye@gslab.com
 //======================================
 // Sagir S Shaikh
 // 17:21
