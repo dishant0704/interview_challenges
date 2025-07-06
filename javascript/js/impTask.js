@@ -73,7 +73,6 @@ function sumOfString(srt) {
 //======================================
 //L1 Interview with GS Lab | GAVS!
 //Wednesday, September 25 17:00 – 18:00
-// HR isha.limaye@gslab.com
 //======================================
 //======================================
 // Sagir S Shaikh

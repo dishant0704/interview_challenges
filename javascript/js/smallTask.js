@@ -290,6 +290,18 @@ function flattenObj(mainObj, key){
 }
 console.log(flattenObj(hello, "subitems"))
 
+//OR//
+let tempArray2 = [];
+function flattenObj(obj){
+    obj.forEach((item)=>{
+        const{name, subitems} = item;
+        if(subitems) flattenObj(subitems)
+        tempArray.push(name) 
+    })
+    return tempArray
+}
+console.log(flattenObj(hello))
+
 // console.log("create an array and add name like this ['Menu 1', 'Menu 2', 'Menu 3', 'Menu 4', 'Menu 5', 'Menu 6']");
 // console.log(flattenObj(hello));
 //16:
@@ -752,6 +764,7 @@ people.forEach((item)=>{
  propleGroup =  people.filter((fitem)=> fitem.age === age)
 })
 console.log(propleGroup)
+
 // Or
 // duplicateData = people.reduce((acc,cur)=>{
 //     if(!acc[cur.age])acc[cur.age] =0
@@ -964,6 +977,17 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 // find only number from string
 //========================================
 //========================================
+
+// let srt = '03Ju23st 15te5ll10 12me6 3the ti45me 09f567or 06bu7s'
+
+// //only alphabet
+// let onlyAlphabet = srt.replace(/\d+|^\s+$/g, '').replace(/\s+/g, '');
+// console.log(onlyAlphabet)
+
+// //only Number
+// let onlyNumber = srt.replace(/\D/g, '').replace(/\s+/g, '');
+// console.log(onlyNumber)
+
 // let srt = '03Ju23st 15te5ll10 12me6 3the ti45me 09f567or 06bu7s'
 // srt.replace(/\D/g,"")
 // function sumOfString2(srt) {
@@ -1315,3 +1339,39 @@ var object = {
 const{name, ...remaining} = object;
 console.log(name)
 console.log(remaining) //{ address: 'Tarsali, Vadodara', 'cell no.': 9924297347 }
+
+//=======================================
+// NTT Data L1 Interview - UI Developer - KETAN SAWANT
+// Thursday, 3 July⋅ 12:00 – 12:30
+// HR: saurabh.pandey@nttdata.com, Pammal:sitara.m@infosys.com
+//=======================================
+
+const string = 'My name is ketan';
+
+function reverseString(str){
+   const strArray = str.split(" ")
+   const reverseTextArr = strArray.map((item)=>[...item].reverse().join(""))
+   return reverseTextArr.join(" ")
+}
+console.log(reverseString(string));//yM eman si natek
+
+//OR
+
+function reverseString(str){
+   const strArray = str.split(" ")
+   let returnStr = ""
+   for(var i = 0; i< strArray.length; i++){
+       returnStr += reverStr(strArray[i])+" "
+   }
+   return returnStr;
+}
+
+function reverStr(str){
+   const strArray = [...str]
+   let strring=""
+   for(var i = (strArray.length - 1); i >= 0; i--){
+       strring += strArray[i]
+   }
+   return (strring)
+}
+console.log(reverseString(string));//yM eman si natek
