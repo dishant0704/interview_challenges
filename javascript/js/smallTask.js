@@ -477,6 +477,11 @@ for (var i = 0; i < myArr.length; i++) {
 }
 //console.log("Find duplicates in above array");
 //console.log([...new Set(dupArray)])
+// OR 
+
+const findDuplicate = myArr.filter((value, indexs, self) => self.indexOf(value) != indexs)
+console.log(findDuplicate)
+//console.log([...new Set(findDuplicate)])
 
 // c)Write a recursive function to find sum of all numbers in above array
 let sum = myArr.reduce((acc, cur, i, myArr) => {
@@ -759,10 +764,12 @@ let people = [
     {name: 'Jane', age: 20}
     ];
 let propleGroup = []
+
 people.forEach((item)=>{
  const{name, age}=item
  propleGroup =  people.filter((fitem)=> fitem.age === age)
 })
+
 console.log(propleGroup)
 
 // Or
@@ -820,38 +827,6 @@ let frnds = [{
 // OR
 // const total = foo.reduce((acc, crr)=> acc += Object.values(crr)[0],0)
 // console.log(total)
-
-// Go Digit- UI Lead - Ketan Sawant - May 15 , 2024  2:00 PM India
-// Wednesday, 15 May⋅14:00 – 14:30
-//========================================
-// #1.How to swap two numbers without using a temporary variable?
-var x=10
-var y=25
-
-x = x+y //35
-console.log(x)
-y = x-y //(35 - 25 = 10)
-console.log("y: ", y)
-x = x-y //(35 - 10 = 25)
-console.log("x: ",x)
-
-// What's the Output?
-
-// for(var i=0; i<3; i++){
-//     setTimeout(() => {
-//       console.log(i)  
-//     }, 1000);
-// }
-// Output: 333
-
-// fixed with let or closer
-// for(var i=0; i<3; i++){
-//     let a = i;
-//     setTimeout(() => {
-//       console.log(a) ; 
-//     }, 1000);
-// }
-// Output: 012
 
 // Technical Discussion for Ketan- ReactJS - infosys
 // Tuesday, 25 June⋅15:30 – 16:00
@@ -919,22 +894,6 @@ function findTwoSum(nums, target) {
 
 console.log(findTwoSum([7, 11, 15, 2], 26));
 console.log(findTwoSum([5, 3, 5, 7], 10));
-
-
-// var a ="10"
-// var b =10
-// console.log(a==b) //true
-// console.log(a===b) //false
-
-// var a=10
-// var b=a++ //11
-// var c=++a //12
-// console.log(a,b,c) //true 12, 10, 12 
-
-// var y={}
-// var x=y
-// x.a = 10
-// console.log(y) 
 
 // Tech discussion_Lead React developer_KETAN SAWANT
 // Company : Moolya.com
@@ -1027,24 +986,6 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 
 // //display the calculated age
 // document.write("Age of the date entered: " + age + " years");
-
-//Interview Scheduled with Hexaware Technologies
-//Wednesday, 18 September⋅11:15 – 12:00
-//==========================================
-// let y = true + true // 1+1 = 2
-// let x = y + false // 2+0 = 2
-// console.log(x) //2
-
-// let x = false
-// let y = "0"
-// let z = 0
-
-// console.log(x==y) // false
-// console.log(x==z) // true
-
-// let x = "false"
-// let y = !x
-// console.log(y) // false
 
 //L1 Interview with GS Lab | GAVS!
 //Wednesday, September 25 17:00 – 18:00
@@ -1256,21 +1197,12 @@ function capIndex(string){
    return capArray
 }
 
-console.log(capIndex(str)) // [0,6]
+//OR
 
-//=======================================
-// Hexaware Technologies -- Technical round of Ketan Sawant
-// HR: Amit Gupta [9315980576] (Hexaware Technologies), Pammal: viveks1@hexaware.com
-// Friday, December 6⋅12:30 – 13:00
-//=======================================
-function foo(){
-    let a=b=0
-    a++
-    return a
-}
-foo();
-console.log(typeof a) //undefined
-console.log(typeof b) //number
+// const result = [...str].filter(item => item === item.toUpperCase() && item !== " ")
+// console.log(result)
+
+// console.log(capIndex(str)) // [0,6]
 
 //=======================================
 // Technical Interview - Expert Frontend Developer - Ketan Sawant
@@ -1321,26 +1253,6 @@ function string(str1, str2){
 console.log(string(s1, s2)) //true
 
 //=======================================
-// Infosys Evaluation for Ketan Sawant (UI/UX + React: Exp - 13 Years)
-// Thursday, 26 June⋅10:00 – 10:30
-// HR: aishwarya.kujur@infosys.com, Pammal:sitara.m@infosys.com
-//=======================================
-
-var add = (a, b=90) => {
-    console.log(a+" "+b)
-}
-add(100) // 100 90
-
-var object = {
-    name: "ketan",
-    address: "Tarsali, Vadodara",
-    cell: 9924297347
-}
-const{name, ...remaining} = object;
-console.log(name)
-console.log(remaining) //{ address: 'Tarsali, Vadodara', 'cell no.': 9924297347 }
-
-//=======================================
 // NTT Data L1 Interview - UI Developer - KETAN SAWANT
 // Thursday, 3 July⋅ 12:00 – 12:30
 // HR: saurabh.pandey@nttdata.com, Pammal:sitara.m@infosys.com
@@ -1375,3 +1287,35 @@ function reverStr(str){
    return (strring)
 }
 console.log(reverseString(string));//yM eman si natek
+
+//=======================================
+// max and min repited charters
+//=======================================
+let string = "Online Javascript Editor free"
+// let string = "Phir Wahi Raat Hai Khwab"
+function minMaxChar(str){
+    const chrObj = [...str].reduce((acc,cur) => {
+        if(!acc[cur]) acc[cur] = 0
+        acc[cur]++
+        return acc
+    },{});
+    
+    //create two array for value and keys
+    const objCountArray = Object.values(chrObj)
+    const objCharArray = Object.keys(chrObj)
+    
+    //max and min char repete number
+    const maxRep = Math.max.apply(null, objCountArray)
+    const minRep = Math.min.apply(null, objCountArray)
+    
+    //find maxnumber into array 
+    const maxInd = objCountArray.indexOf(maxRep)
+    const maxChr = objCharArray[maxInd]
+    
+    const minInd = objCountArray.indexOf(minRep)
+    const minChr = objCharArray[minInd]
+    
+    return [{maxChar: maxChr+" ("+maxRep+")"}, {minChar: minChr+" ("+minRep+")"}]
+}
+
+console.log(minMaxChar(string));
