@@ -36,6 +36,9 @@ const arraySum = nums01.reduce((acc, curr, i, array)=>{
 //-----
 
 Array.prototype.myMap = function(cb){
+    if(!Array.isArray(this)){
+        throw new Error(this+" it is not callable")
+    }
     let tempArray = [];
     for(let i=0; i<this.length; i++){
         tempArray.push(cb(this[i], i, this))
@@ -49,6 +52,9 @@ Array.prototype.myMap = function(cb){
 //-----
 
 Array.prototype.myFilter = function(cb){
+    if(!Array.isArray(this)){
+        throw new Error(this+" it is not callable")
+    }
     let tempArray = []
     for(let i=0;i<this.length; i++){
         if(cb(this[i],i,this)) tempArray.push(this[i])
@@ -61,6 +67,9 @@ Array.prototype.myFilter = function(cb){
 //-----
 
 Array.prototype.myReduce = function(cb, initialvalue){
+    if(!Array.isArray(this)){
+        throw new Error(this+" it is not callable")
+    }
     var accumulator = initialvalue
     for(let i=0; i<this.length; i++){
         accumulator = accumulator? cb(accumulator, this[i], i, this): this[i];

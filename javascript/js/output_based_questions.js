@@ -152,3 +152,35 @@ console.log(remaining) //{ address: 'Tarsali, Vadodara', 'cell no.': 9924297347 
 // obj.b() //ketan_Object
 // c() //undefined
 // c.call(obj) //ketan_Object
+
+//======================================
+//Technical Interview - Ketan Sawant (React js)
+//HR: Shraddha Soni, Pammal: ashish.vadhwa@netweb.biz
+//Monday, 25 November⋅14:00 – 15:00
+//======================================
+
+setTimeout(function() {
+    console.log('firsttimeout');
+}, 0);
+setImmediate(function() {
+    console.log('Immediate Func');
+}, 0);
+setTimeout(function() {
+    console.log('Timedout again');
+}, 10);
+Promise.resolve(1).then(function() {
+    console.log('Promise');
+});
+process.nextTick(function() {
+    console.log("processing next");
+});
+console.log("John");
+
+//Output
+// John
+// processing next
+// Promise
+// firsttimeout
+// Immediate Func
+// Timedout again
+

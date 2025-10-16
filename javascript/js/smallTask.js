@@ -580,7 +580,6 @@ function charCount_kamleshVersion01(string) {
 
 // console.log(charCount);
 
-
  //3) Get the value of email by destructuring
  const user = {
     name: "Ketan",
@@ -1131,36 +1130,6 @@ const promise = new Promise((resolve, reject)=>{
 })
 promise.then(()=> console.log("333"))
 
-//======================================
-//Technical Interview - Ketan Sawant (React js)
-//HR: Shraddha Soni, Pammal: ashish.vadhwa@netweb.biz
-//Monday, 25 November⋅14:00 – 15:00
-//======================================
-
-setTimeout(function() {
-    console.log('firsttimeout');
-}, 0);
-setImmediate(function() {
-    console.log('Immediate Func');
-}, 0);
-setTimeout(function() {
-    console.log('Timedout again');
-}, 10);
-Promise.resolve(1).then(function() {
-    console.log('Promise');
-});
-process.nextTick(function() {
-    console.log("processing next");
-});
-console.log("John");
-
-//Output
-// John
-// processing next
-// Promise
-// firsttimeout
-// Immediate Func
-// Timedout again
 
 //======================================
 // Interview scheduled with Hexaware Technologies
@@ -1319,3 +1288,100 @@ function minMaxChar(str){
 }
 
 console.log(minMaxChar(string));
+
+//=======================================
+// mphasis
+// L1 Discussion-UI React Js-Ketan Sawant 9924297347
+// Monday, 13 October⋅15:30 – 16:00
+//=======================================
+// const match1 = [  
+// {name:'AAA', runs: 100},  
+// {name:'BBB', runs: 200},  
+// {name:'CCC', runs: 300},  
+// ];   
+// const match2 = [  
+// {name:'AAA', runs: 50},  
+// {name:'CCC', runs: 60},  
+// {name:'BBB', runs: 70},  
+// ];  
+
+// function totalRuns (m1, m2){
+//     const total = []
+//         m1.forEach((item, i)=>{
+//             const{name, runs} = item
+//             const match2 = m2.filter((item) => item.name === name)[0];
+//             if(name === match2.name){
+//                 let run = match2.runs + runs
+//                 total.push({name: name, runs: run})
+//             }
+//         })
+//     return total
+// }
+// console.log(totalRuns(match1, match2))
+
+// // Output should be 
+// const total= [  
+// {name:'AAA', runs: 150},  
+// {name:'BBB', runs: 270},  
+// {name:'CCC', runs: 360},  
+// ];  
+
+//=======================================
+// Company: tcs
+// #PERSONAL# Discussion Video Call- Ketan
+// Wednesday, 15 October⋅15:00 – 15:45
+//=======================================
+
+// var arr = ["apple", "mango", "apple", "orange", "mango", "mango"];
+// let count = arr.reduce((acc, cur) =>{
+//     if(!acc[cur]) acc[cur] = 0;
+//     acc[cur]++
+//     return acc
+// },{})
+// console.log(count)
+ 
+//=======================================
+// Tempo Labs Assessment
+// Wednesday, October 15⋅19:00 – 20:15
+//=======================================
+//#1. convert object data to array
+ let indiaSate = {  
+  "Gujarat": {
+	"capital":"Gandhinagar",
+	"Language": "Gujarati",
+	"districts":"33"
+  },
+  "Maharashtra": {
+	"capital":"Mumbai",
+	"Language": "Marathi",
+	"districts":"36"
+  },
+  "Madhya Pradesh": {
+	"capital":"Bhopal",
+	"Language": "Hindi",
+	"districts":"51"
+  },
+  "Punjab": {
+	"capital":"Chandigarh",
+	"Language": "Punjabi",
+	"districts":"22"
+  },
+  "Tamil Nadu": {
+	"capital":"chennai",
+	"Language": "tamil",
+	"districts":"32"
+  }
+}
+
+function ObjToArr(obj, custKey){
+    let temArray = []
+    const keys = Object.keys(obj)
+    const values = Object.values(obj)
+    keys.forEach((key, i)=>{
+        const data = {[custKey]:key,...values[i]}
+        temArray.push(data)
+    })
+    return temArray
+}
+
+console.log(ObjToArr(indiaSate, "state"))
