@@ -184,3 +184,147 @@ console.log("John");
 // Immediate Func
 // Timedout again
 
+
+//What is output of below code
+
+console.log(7 > 5 > 4 ) //false 
+
+var array = [1, 2, 3, 4,]
+array.length = 0 
+console.log(array) //[]
+
+var x=10
+var y=25
+
+x = x+y //35
+console.log(x) //35
+y = x-y //(35 - 25 = 10)
+console.log("y: ", y) // 10
+x = x-y //(35 - 10 = 25)
+console.log("x: ",x) //25
+
+for(var i=0; i<3; i++){
+    setTimeout(() => {
+      console.log(i)  
+    }, 1000);
+}
+//333
+
+for(var i=0; i<3; i++){
+    let a = i;
+    setTimeout(() => {
+      console.log(a) ; 
+    }, 1000);
+}
+//012
+
+var a ="10"
+var b =10
+console.log(a==b) //true
+console.log(a===b) //false
+
+var a=10
+var b=a++ //11
+var c=++a //12
+console.log(a,b,c) //true 12, 10, 12 
+
+var y={}
+var x=y
+x.a = 10
+console.log(y) //{ a: 10 }
+
+let y = true + true // 1+1 = 2
+let x = y + false // 2+0 = 2
+console.log(x) //2
+
+let x = false
+let y = "0"
+let z = 0
+
+console.log(x==y) // false
+console.log(x==z) // true
+
+let x = "false"
+let y = !x
+console.log(y) // false
+
+function foo(){
+    let a=b=0
+    a++
+    return a
+}
+
+foo();
+console.log(typeof a) //undefined
+console.log(typeof b) //number
+
+var add = (a, b=90) => {
+    console.log(a+" "+b)
+}
+add(100) // 100 90
+
+var object = {
+    name: "ketan",
+    address: "Tarsali, Vadodara",
+    cell: 9924297347
+}
+// const{name, ...remaining} = object;
+console.log(name) // ketan
+console.log(remaining) 
+//{ address: 'Tarsali, Vadodara', 'cell no.': 9924297347 }
+
+console.log(1+"2"+"2"); //122
+console.log(1+"2"*"2"); //5
+console.log("A"-"B"+"2"); //NAN2
+console.log("8"-"5"+"2"); // 32
+console.log(typeof null); // object
+console.log(typeof undefined); //undefined
+console.log(null === undefined); //false
+console.log(null == undefined); //true
+
+let string = "Ketan"
+if(true){
+    let string = "Dishant"
+    console.log(string)
+}
+console.log(string) // Dishant, // Ketan
+
+obj = {
+    a:"ketan_Object",
+    b:function(){
+        console.log(this.a)
+    }
+}
+
+const c = obj.b
+obj.b() //ketan_Object
+c() //undefined
+c.call(obj) //ketan_Object
+
+setTimeout(function() {
+    console.log('firsttimeout');
+}, 0);
+setImmediate(function() {
+    console.log('Immediate Func');
+}, 0);
+setTimeout(function() {
+    console.log('Timedout again');
+}, 10);
+Promise.resolve(1).then(function() {
+    console.log('Promise');
+});
+process.nextTick(function() {
+    console.log("processing next");
+});
+console.log("John");
+
+//Output
+// John
+// processing next
+// Promise
+// firsttimeout
+// Immediate Func
+// Timedout again
+
+
+
