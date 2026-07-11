@@ -233,3 +233,131 @@ Function.prototype.myBind = function (context = {}, ...args){
 
 const newfunc =  purchaseCar.myBind(car1, "$", 2000);
 newfunc("$", 2000);
+
+/*
+Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string). 
+Examples: Inputs: "abc", "bc" Output: true Inputs: "abc", "d" Output: false
+*/
+//=========================
+
+function solution(str, ending){
+    return str.endsWith(ending);
+}
+/*
+Outputs: 
+solution("abc", "bc"); // true
+solution("abc", "d");  // false
+solution("abc", "");   // true
+solution("", "a");     // false
+solution("", "");      // true
+*/
+
+//=========================
+/*
+Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result. 
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0). 
+If the input string is empty, return an empty string. 
+The words in the input String will only contain valid consecutive numbers. 
+Examples 
+"is2 Thi1s T4est 3a" --> "Thi1s is2 3a T4est" 
+"4of Fo1r pe6ople g3ood th5e the2" --> "Fo1r the2 g3ood 4of th5e pe6ople" 
+"" --> ""
+ */
+
+//=========================
+function order(words){
+    return words.split(' ').sort((a, b) => {
+        return a.match(/\d/) - b.match(/\d/);
+    }).join(' ');
+}
+
+/*
+Outputs: 
+order("is2 Thi1s T4est 3a"); // "Thi1s is2 3a T4est"
+order("4of Fo1r pe6ople g3ood th5e the2"); // "Fo1r the2 g3ood 4of th5e pe6ople"
+order(""); // ""
+*/
+
+//=========================
+//=========================
+/*
+Background Oh no, there were some problems with your computer and now you cannot convert any data type to strings! 
+Task 
+The toString() method has been disabled for booleans, numbers, arrays and objects. Your goal is to retrive toString() for the following data types. 
+I. Booleans 
+For booleans: 
+true should be converted to "true" 
+false should be converted to "false" 
+
+II. Numbers 
+For numbers, conversion should be as follows: 
+// e.g. 
+// (3).toString() === "3" 
+// (3.14).toString() === "3.14" 
+// (-78).toString() === "-78" 
+// Math.PI.toString() === "3.141592653589793" 
+
+III. Arrays
+For the purposes of this Kata, you will only be expected to convert arrays with numbers only into strings. 
+However, on top of fixing it, we would also like to improve it as well. 
+We would like to keep the square brackets ([]) around the "stringified" array as it would be seen in Javascript code. 
+
+For example: 
+// e.g. [].toString() === "[]" 
+// [1].toString() === "[1]" 
+// [2,4,8,17].toString() === "[2, 4, 8, 17]" 
+// [Math.PI, Math.E].toString() === "[3.141592653589793,2.718281828459045]" 
+
+As you may have noticed in the examples above, when the array has more than one element, 
+some of the strings have spaces as well as commas separating each item but some strings do not. 
+For the purposes of this Kata whether there are whitespaces or not does not matter 
+for stringified arrays - before conducting the tests your input is stripped of all whitespace. 
+
+Final Note - IMPORTANT Your recovered toString() methods should only return the stringified version of the 
+input - it should NOT alter the original value. Test cases have been created to confirm this. Kata in this Series Strings, 
+strings, strings (Easy) - this Kata Strings, strings, strings (Hard)
+
+*/
+
+// Boolean
+Boolean.prototype.toString = function () {
+  return this.valueOf() ? "true" : "false";
+};
+
+// Number
+Number.prototype.toString = function () {
+  return "" + this.valueOf(); // implicit conversion
+};
+
+// Array (numbers only)
+Array.prototype.toString = function () {
+  if (this.length === 0) return "[]";
+
+  let result = "[";
+
+  for (let i = 0; i < this.length; i++) {
+    result += "" + this[i]; // convert each number
+
+    if (i !== this.length - 1) {
+      result += ", "; // spacing optional (allowed)
+    }
+  }
+
+  result += "]";
+  return result;
+};
+
+/*
+Outputs: 
+true.toString()            // "true"
+false.toString()           // "false"
+
+(3).toString()             // "3"
+(3.14).toString()          // "3.14"
+
+[].toString()              // "[]"
+[1].toString()             // "[1]"
+[2,4,8].toString()         // "[2, 4, 8]"
+[Math.PI].toString()       // "[3.141592653589793]" */
+
+//=========================

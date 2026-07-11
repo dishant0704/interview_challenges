@@ -1,15 +1,15 @@
 const themes = [
-    { id: 1, value: "k-2" },
-    { id: 2, value: "3-5" },
-    { id: 3, value: "6-8" },
-    { id: 4, value: "9-12" }
+  { id: 1, value: "k-2" },
+  { id: 2, value: "3-5" },
+  { id: 3, value: "6-8" },
+  { id: 4, value: "9-12" },
 ];
 
 //Q1: I want to get index of element whose value is equal to "6-8".
 for (var i = 1; i < themes.length; i++) {
-    if (themes[i].value == "6-8") {
-        //console.log(i) // 2
-    }
+  if (themes[i].value == "6-8") {
+    //console.log(i) // 2
+  }
 }
 
 //Or
@@ -18,11 +18,11 @@ for (var i = 1; i < themes.length; i++) {
 //     const result = arr.map((item)=> item.value)
 //     return "index: "+result.indexOf(value)
 //  }
- 
+
 //  console.log(findIndex("9-12",themes))
 
 //Q2: Destructur above array
-const [a, b, c, d] = themes
+const [a, b, c, d] = themes;
 //console.log(b) // { id: 2, value: "3-5" }
 
 //Q3: Merge one array to another javascript
@@ -35,7 +35,7 @@ arr1.push.apply(arr1, arr2);
 
 //Q3B. merge two arrays javascript without concat
 //How to merge two arrays and remove duplicate items in JavaScript ?
-// let arr1 = [1, 2, 3, 4, 5, 6]; 
+// let arr1 = [1, 2, 3, 4, 5, 6];
 // let arr2 = [3, 4, 5, 7];
 // let arr = [...arr1, ...arr2];
 // let mergedArr = [...new Set(arr)]
@@ -49,21 +49,21 @@ const children = arr3.concat(arr4, arr5);
 //console.log("===|| three ||===")
 //console.log(children)
 
-const finalArray = arr3.concat(arr4,arr5)
-const sortArray = finalArray.sort()
-console.log(sortArray)
+const finalArray = arr3.concat(arr4, arr5);
+const sortArray = finalArray.sort();
+console.log(sortArray);
 
 //Q5: Merge two array find max number
-const num01 = [2, 8, 7, 9, 45, 92, 20]
-const num02 = [21, 18, 67, 19, 40, 100, 120]
+const num01 = [2, 8, 7, 9, 45, 92, 20];
+const num02 = [21, 18, 67, 19, 40, 100, 120];
 
 const newNumArray = num01.concat(num02);
 //console.log(newNumArray);
-const max = Math.max.apply(null, newNumArray)
+const max = Math.max.apply(null, newNumArray);
 //console.log(max);
-const min = Math.min.apply(null, newNumArray)
+const min = Math.min.apply(null, newNumArray);
 //console.log(min);
-const maxNumber = Math.min.apply(null, num01.concat(num02))
+const maxNumber = Math.min.apply(null, num01.concat(num02));
 //console.log(maxNumber);
 //OR
 //const maxNumber = Math.min.apply(null,[...num01, ...num02])
@@ -77,35 +77,37 @@ const maxNumber = Math.min.apply(null, num01.concat(num02))
 // const minNumber = Math.min.apply(null, num01)
 // console.log(minNumber)
 
-function maxNum(arr){
-    let maxNum=0;
-       for(i in num01){
-           let item = num01[i]
-          if(item > maxNum){maxNum = item}
-       }
-   return maxNum
-   }
+function maxNum(arr) {
+  let maxNum = 0;
+  for (i in num01) {
+    let item = num01[i];
+    if (item > maxNum) {
+      maxNum = item;
+    }
+  }
+  return maxNum;
+}
 //console.log(maxNum(num01));
 
 //Q6: infinite currying
 function mul(a) {
-    return function (b) {
-        if (b) return mul(a * b)
-        return a
-    }
+  return function (b) {
+    if (b) return mul(a * b);
+    return a;
+  };
 }
 
 //console.log(mul(5)(2)(5)(2)())
 //Q7: print name
 const obj_Q = {
-    name: 'John',
-    getmyName: function () {
-        function printName() {
-            return `Hi ${this.name}`;
-        }
-        return printName;
+  name: "John",
+  getmyName: function () {
+    function printName() {
+      return `Hi ${this.name}`;
     }
-}
+    return printName;
+  },
+};
 
 //Ans:
 
@@ -118,68 +120,63 @@ var arr = ["apple", "mango", "apple", "orange", "mango", "mango"];
 
 //Filter
 function removeDuplicates(arr) {
-    return arr.filter((item,
-        index) => arr.indexOf(item) === index);
+  return arr.filter((item, index, self) => self.indexOf(item) === index);
 }
 //console.log("filter() method"+removeDuplicates(arr));
 
 //set() method
-const numArr = [1, 2, 3, 1, 5, 10, 25, 10, 20, 50, 40, 50]
+const numArr = [1, 2, 3, 1, 5, 10, 25, 10, 20, 50, 40, 50];
 function removeDuplicates(arr) {
-    return [...new Set(arr)];
+  return [...new Set(arr)];
 }
 
 //console.log("set() Method "+removeDuplicates(numArr));
 
 //forEach() method
-var arr = ["apple", "mango",
-    "apple", "orange", "mango", "mango"];
+var arr = ["apple", "mango", "apple", "orange", "mango", "mango"];
 
 function removeDuplicates(arr) {
-    var unique = [];
-    arr.forEach(element => {
-        if (!unique.includes(element)) {
-            unique.push(element);
-        }
-    });
-    return unique;
+  var unique = [];
+  arr.forEach((element) => {
+    if (!unique.includes(element)) {
+      unique.push(element);
+    }
+  });
+  return unique;
 }
 //console.log("forEach() Method "+removeDuplicates(arr));
 
 //reduce() method
 
-var arr = ["apple", "mango",
-    "apple", "orange", "mango", "mango"];
+var arr = ["apple", "mango", "apple", "orange", "mango", "mango"];
 
 function removeDuplicates(arr) {
-    var unique = arr.reduce(function (acc, curr) {
-        if (!acc.includes(curr))
-            acc.push(curr);
-        return acc;
-    }, []);
-    return unique;
+  var unique = arr.reduce(function (acc, curr) {
+    if (!acc.includes(curr)) acc.push(curr);
+    return acc;
+  }, []);
+  return unique;
 }
 //console.log("reduce() Method: "+removeDuplicates(arr));
 
 //indexOf()
-var arr = ["apple", "mango",
-    "apple", "orange", "mango", "mango"];
+var arr = ["apple", "mango", "apple", "orange", "mango", "mango"];
 
 function removeDuplicates(arr) {
-    var unique = [];
-    for (i = 0; i < arr.length; i++) {
-        if (unique.indexOf(arr[i]) === -1) {
-            unique.push(arr[i]);
-        }
+  var unique = [];
+  for (i = 0; i < arr.length; i++) {
+    if (unique.indexOf(arr[i]) === -1) {
+      unique.push(arr[i]);
     }
-    return unique;
+  }
+  return unique;
 }
 //console.log("indexOf() Method"+removeDuplicates(arr));
 
 //Q9: what is output of below code
 // Interview - Ketan - L1 UI Reactjs - Hexaware Technologies
-var array = [1, 2, 3, 4,]
-array.length = 0 // try this array.length = 3
+var array = [1, 2, 3, 4];
+array.length = 0; // try this array.length = 3
 //console.log(array) //[]
 //console.log(array[0]) //undefined
 
@@ -231,36 +228,36 @@ var array = ["Banana", "Orange", "Apple", "Mango"];
 
 //15: Task A: create an array and add name like this ["Menu 1", "Menu 2", "Menu 3", "Menu 4", "Menu 5", "Menu 6"]
 const hello = [
-    {
-        name: 'Menu 1',
-        link: 'http://google.com',
+  {
+    name: "Menu 1",
+    link: "http://google.com",
+    subitems: [
+      {
+        name: "Menu 2",
+        link: "http://google.com",
+      },
+    ],
+  },
+  {
+    name: "Menu 3",
+    link: "http://google.com",
+    subitems: [
+      {
+        name: "Menu 4",
+        link: "http://google.com",
         subitems: [
-            {
-                name: 'Menu 2',
-                link: 'http://google.com',
-            },
+          {
+            name: "Menu 5",
+            link: "http://google.com",
+          },
+          {
+            name: "Menu 6",
+            link: "http://google.com",
+          },
         ],
-    },
-    {
-        name: 'Menu 3',
-        link: 'http://google.com',
-        subitems: [
-            {
-                name: 'Menu 4',
-                link: 'http://google.com',
-                subitems: [
-                    {
-                        name: 'Menu 5',
-                        link: 'http://google.com',
-                    },
-                    {
-                        name: 'Menu 6',
-                        link: 'http://google.com',
-                    }
-                ],
-            },
-        ],
-    },
+      },
+    ],
+  },
 ];
 
 // function flattenObj(mainObj){
@@ -277,155 +274,169 @@ const hello = [
 
 // OR //
 
-function flattenObj(mainObj, key){
-    var tampArray = []
-    function flattenFun(Obj){
-      Obj.map((item)=>{
-          if(item[key]) flattenFun(item[key])
-          tampArray.push(item.name)
-      })
-    }
-    flattenFun(mainObj)
-    return tampArray.sort() 
+function flattenObj(mainObj, key) {
+  var tampArray = [];
+  function flattenFun(Obj) {
+    Obj.map((item) => {
+      if (item[key]) flattenFun(item[key]);
+      tampArray.push(item.name);
+    });
+  }
+  flattenFun(mainObj);
+  return tampArray.sort();
 }
-console.log(flattenObj(hello, "subitems"))
+console.log(flattenObj(hello, "subitems"));
 
 //OR//
 let tempArray2 = [];
-function flattenObj(obj){
-    obj.forEach((item)=>{
-        const{name, subitems} = item;
-        if(subitems) flattenObj(subitems)
-        tempArray.push(name) 
-    })
-    return tempArray
+function flattenObj(obj) {
+  obj.forEach((item) => {
+    const { name, subitems } = item;
+    if (subitems) flattenObj(subitems);
+    tempArray.push(name);
+  });
+  return tempArray;
 }
-console.log(flattenObj(hello))
+console.log(flattenObj(hello));
 
 // console.log("create an array and add name like this ['Menu 1', 'Menu 2', 'Menu 3', 'Menu 4', 'Menu 5', 'Menu 6']");
 // console.log(flattenObj(hello));
 //16:
 //====
 let array_1 = [
-    [1, 2],
-    [3, 4],
-    [5, 6],[7, 8, 9],
-    [10, 11, 12, 13, 14, 15]
+  [1, 2],
+  [3, 4],
+  [5, 6],
+  [7, 8, 9],
+  [10, 11, 12, 13, 14, 15],
 ];
 console.log(flattenArray(array_1));
 
 const array_2 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 console.log(flattenArray(array_2));
 
-function flattenArray(mainArray){
-    let temArray = []
-    function flattenFn(array){
-        array.map((item)=>{
-            if(Array.isArray(item)){flattenFn(item)}else{temArray.push(item)}
-        })
-    }
-    flattenFn(mainArray)
-    return temArray.sort((a, b)=>{a - b});
+function flattenArray(mainArray) {
+  let temArray = [];
+  function flattenFn(array) {
+    array.map((item) => {
+      if (Array.isArray(item)) {
+        flattenFn(item);
+      } else {
+        temArray.push(item);
+      }
+    });
+  }
+  flattenFn(mainArray);
+  return temArray.sort((a, b) => {
+    a - b;
+  });
 }
 //17:
 //====
 const array = [
-    [1,2],
-    [6,5],
-    [4,2],
-    [3,8,[8,9,25,],85,1,36],
-    [7,8],
-    ]
-    
-function costumFlat(arr, depth=1){
-    let result = []
-    arr.forEach((arr)=>{
-        if(Array.isArray(arr) && depth > 0){
-        result.push(...costumFlat(arr, depth - 1))
-        }else{
-            result.push(arr)
-        }
-    })
-    
-    return result;
+  [1, 2],
+  [6, 5],
+  [4, 2],
+  [3, 8, [8, 9, 25], 85, 1, 36],
+  [7, 8],
+];
+
+function costumFlat(arr, depth = 1) {
+  let result = [];
+  arr.forEach((arr) => {
+    if (Array.isArray(arr) && depth > 0) {
+      result.push(...costumFlat(arr, depth - 1));
+    } else {
+      result.push(arr);
+    }
+  });
+
+  return result;
 }
 
 //18:
 //=======
-const arrayA = ["Ketan", "Megha", "Swati", "Archana", "Vijay", "Pramatae", "Dishant", "Rajani", "Dattarraya"]
-const arrayB = ["Megha", "Swati", "Archana", "Vijay", "Pramatae"]
+const arrayA = [
+  "Ketan",
+  "Megha",
+  "Swati",
+  "Archana",
+  "Vijay",
+  "Pramatae",
+  "Dishant",
+  "Rajani",
+  "Dattarraya",
+];
+const arrayB = ["Megha", "Swati", "Archana", "Vijay", "Pramatae"];
 
 //Find common data
-const newArrayA = arrayA.filter((item)=>arrayB.includes(item))
+const newArrayA = arrayA.filter((item) => arrayB.includes(item));
 
 //Removed common data
-const newArrayB = arrayA.filter((item)=>!arrayB.includes(item))
+const newArrayB = arrayA.filter((item) => !arrayB.includes(item));
 console.log(newArrayB);
 
 //console.log(costumFlat(array,2))
 
 const skillData_a = [
-    {id: 1, name: "JavaScript"},
-    {id: 2, name: "ReactJs"},
-    {id: 3, name: "ES6"},
-    {id: 4, name: "Sass"},
-    {id: 5, name: "CSS"},
-    {id: 6, name: "SCSS"},
-    {id: 7, name: "jQuery"},
-    {id: 8, name: "TypeScript"},
-    {id: 9, name: "nestjs"},
-    {id: 10, name: "Next Js"},
-    {id: 11, name: "HTML"},
-    {id: 12, name: "Ajax"},
-    {id: 13, name: "Vite"},
-    {id: 14, name: "Node"},
-    {id: 15, name: "Bootstrap"},
-  ]
+  { id: 1, name: "JavaScript" },
+  { id: 2, name: "ReactJs" },
+  { id: 3, name: "ES6" },
+  { id: 4, name: "Sass" },
+  { id: 5, name: "CSS" },
+  { id: 6, name: "SCSS" },
+  { id: 7, name: "jQuery" },
+  { id: 8, name: "TypeScript" },
+  { id: 9, name: "nestjs" },
+  { id: 10, name: "Next Js" },
+  { id: 11, name: "HTML" },
+  { id: 12, name: "Ajax" },
+  { id: 13, name: "Vite" },
+  { id: 14, name: "Node" },
+  { id: 15, name: "Bootstrap" },
+];
 const skillData_b = [
-    {id: 1, name: "JavaScript"},
-    {id: 2, name: "ReactJs"},
-    {id: 3, name: "ES6"},
-    {id: 4, name: "Sass"},
-    {id: 5, name: "CSS"},
-    {id: 6, name: "SCSS"},
-    {id: 7, name: "jQuery"},
-    {id: 14, name: "Node"},
-    {id: 15, name: "Bootstrap"},
-  ]
+  { id: 1, name: "JavaScript" },
+  { id: 2, name: "ReactJs" },
+  { id: 3, name: "ES6" },
+  { id: 4, name: "Sass" },
+  { id: 5, name: "CSS" },
+  { id: 6, name: "SCSS" },
+  { id: 7, name: "jQuery" },
+  { id: 14, name: "Node" },
+  { id: 15, name: "Bootstrap" },
+];
 
-const arrayAA = skillData_a.map((item)=>item.name)
-const arrayBB = skillData_b.map((item)=>item.name)
+const arrayAA = skillData_a.map((item) => item.name);
+const arrayBB = skillData_b.map((item) => item.name);
 
-console.log("A: ",arrayAA);
-console.log("B: ",arrayBB);
+console.log("A: ", arrayAA);
+console.log("B: ", arrayBB);
 
-const rastData = skillData_a.filter((item)=>!arrayBB.includes(item.name))
+const rastData = skillData_a.filter((item) => !arrayBB.includes(item.name));
 
-console.log(rastData)
+console.log(rastData);
 
 //Taks 02A: write javascript for sort Array data in to ascending order Or Bubble sort javascript
 //var array = ["z", "e", "g", "b", "q", "s", "n"]
 var array = [243, 45, 23, 356, 3, 5346, 35, 5];
 // Creating the bblSort function
 function bblSort(arr) {
-
-    for (var i = 0; i < arr.length; i++) {
-
-        // Last i elements are already in place 
-        for (var j = 0; j < (arr.length - i - 1); j++) {
-
-            // Checking if the item at present iteration
-            // is greater than the next iteration
-            if (arr[j] > arr[j + 1]) {
-                // If the condition is true then swap them
-                var temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
-            }
-        }
+  for (var i = 0; i < arr.length; i++) {
+    // Last i elements are already in place
+    for (var j = 0; j < arr.length - i - 1; j++) {
+      // Checking if the item at present iteration
+      // is greater than the next iteration
+      if (arr[j] > arr[j + 1]) {
+        // If the condition is true then swap them
+        var temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
     }
-    // Print the sorted array
-    console.log(arr);
+  }
+  // Print the sorted array
+  console.log(arr);
 }
 // console.log("Bubble sort javascript");
 // bblSort(array);
@@ -446,20 +457,22 @@ var marks = [12, 25, 31, 23, 75, 81, 100];
 // Print sorted Numeric array
 // console.log(marks.reduce((acc, curr, i, array)=>{
 //     return acc+curr
-// }, 0));      
+// }, 0));
 
 //Interview Scheduled for React UI Developer at NeoZoom Technologies with Ketan
 //Saturday, 25 February 2023⋅16:15 – 16:45
 //#1. Task Remove duplicate data and arrange into descending order
-var array = [25, 85, 100, 235, 85, 25, 50, 50]
-var newArray = [...new Set(array)]
-var DSO = newArray.sort(function (a, b) { return b - a });
+var array = [25, 85, 100, 235, 85, 25, 50, 50];
+var newArray = [...new Set(array)];
+var DSO = newArray.sort(function (a, b) {
+  return b - a;
+});
 //console.log("Task Remove duplicate data and arrange into descending order");
 //console.log(DSO);
 
 ////Persistent Systems 03 - Interview 4 March at 2:30 PM
-// 1) 
-const myArr = [11, 22, 33, 22, 33, 77, 33, 44, 55, 66]
+// 1)
+const myArr = [11, 22, 33, 22, 33, 77, 33, 44, 55, 66];
 
 // a) Find largest Number (Expected output = 77)
 //console.log("Find largest Number")
@@ -467,60 +480,73 @@ const myArr = [11, 22, 33, 22, 33, 77, 33, 44, 55, 66]
 //console.log(Math.min.apply(null, myArr))
 
 // b) Find duplicates in above array (Expected output = [22,33])
-let tempArray = []
-let dupArray = []
+let tempArray = [];
+let dupArray = [];
 for (var i = 0; i < myArr.length; i++) {
-    if (tempArray.indexOf(myArr[i]) > - 1) {
-        dupArray.push(myArr[i]);
-    }
-    tempArray.push(myArr[i])
+  if (tempArray.indexOf(myArr[i]) > -1) {
+    dupArray.push(myArr[i]);
+  }
+  tempArray.push(myArr[i]);
 }
 //console.log("Find duplicates in above array");
 //console.log([...new Set(dupArray)])
-// OR 
+// OR
 
-const findDuplicate = myArr.filter((value, indexs, self) => self.indexOf(value) != indexs)
-console.log(findDuplicate)
+const findDuplicate = myArr.filter(
+  (value, indexs, self) => self.indexOf(value) != indexs,
+);
+console.log(findDuplicate);
 //console.log([...new Set(findDuplicate)])
 
 // c)Write a recursive function to find sum of all numbers in above array
 let sum = myArr.reduce((acc, cur, i, myArr) => {
-    return acc + cur
+  return acc + cur;
 }, 0);
 // console.log("find sum of all numbers in above array");
 // console.log(sum)
 
 // 2)
-const employees = [{
-    "name": "Pooja",
-    "yrsOfExperience": "2",
-    "city": "Mumbai"
-}, {
-    "name": "Anuj",
-    "yrsOfExperience": "10",
-    "city": "Pune"
-}, {
-    "name": "Sam",
-    "yrsOfExperience": "6",
-    "city": "Bangalore"
-}];
+const employees = [
+  {
+    name: "Pooja",
+    yrsOfExperience: "2",
+    city: "Mumbai",
+  },
+  {
+    name: "Anuj",
+    yrsOfExperience: "10",
+    city: "Pune",
+  },
+  {
+    name: "Sam",
+    yrsOfExperience: "6",
+    city: "Bangalore",
+  },
+];
 
 /*Use ES6 array methods*/
 //1. Sort employees by yrsOfExperience
 var shortData = employees.sort(function (a, b) {
-    return a.yrsOfExperience - b.yrsOfExperience;
+  return a.yrsOfExperience - b.yrsOfExperience;
 });
 // console.log("Sort employees by yrsOfExperience: ")
 // console.log(shortData);
 
 //2. Find employees with city Pune.
-var puneEmp = employees.filter((emp) => { return emp.city == "Pune" })
+var puneEmp = employees.filter((emp) => {
+  return emp.city == "Pune";
+});
 // console.log("Find employees with city Pune");
 // console.log(puneEmp)
 
 //3. Add new property “grade” with value "5" to only those employees whose yrsOfExperience is greater than and equal to 5 */
-var gradeArray = employees.filter((emp) => { return emp.yrsOfExperience >= 5 })
-var updatedArray = gradeArray.map((emp) => { emp.grade = 5; return emp})
+var gradeArray = employees.filter((emp) => {
+  return emp.yrsOfExperience >= 5;
+});
+var updatedArray = gradeArray.map((emp) => {
+  emp.grade = 5;
+  return emp;
+});
 //OR
 //var updatedArray = employees.filter((emp) => { return emp.yrsOfExperience >= 5 }).map((emp) => { return emp.grade = 5; return emp})
 // console.log("Add new property “grade” with value '5' to only those employees whose yrsOfExperience is greater than and equal to 5")
@@ -533,15 +559,15 @@ var updatedArray = gradeArray.map((emp) => { emp.grade = 5; return emp})
 
 //3) Get the value of email by destructuring
 const json = {
-    "employees": {
-        "name": "abc",
-        "city": "xyz",
-        "contact": {
-            "email": "abc@test.com",
-            "number": "123"
-        }
-    }
-}
+  employees: {
+    name: "abc",
+    city: "xyz",
+    contact: {
+      email: "abc@test.com",
+      number: "123",
+    },
+  },
+};
 // const {employees:{contact:{email}} }= json
 // console.log(email)
 
@@ -550,23 +576,24 @@ const json = {
 // console.log(email);
 
 function charCount_kamleshVersion01(string) {
-    console.log("Char count");
-    let charCount = [...string].reduce((tmp, item) => {
-        if (!tmp[item]) {
-            tmp[item] = 0;
-        }
-        tmp[item]++;
-        return tmp;
-    }, {});    
+  console.log("Char count");
+  let charCount = [...string].reduce((tmp, item) => {
+    if (!tmp[item]) {
+      tmp[item] = 0;
+    }
+    tmp[item]++;
+    return tmp;
+  }, {});
 
-    // converting to array
-    let formatedArray = Object.keys(charCount).map(item=>(item+':'+charCount[item]));
-    console.log('String:',string);
-    console.log('Char Count Object:',charCount);
+  // converting to array
+  let formatedArray = Object.keys(charCount).map(
+    (item) => item + ":" + charCount[item],
+  );
+  console.log("String:", string);
+  console.log("Char Count Object:", charCount);
 
-    console.log('formated Array:',formatedArray);
-    console.log('formated String:',formatedArray.join(', '));
-
+  console.log("formated Array:", formatedArray);
+  console.log("formated String:", formatedArray.join(", "));
 }
 //charCount_kamleshVersion01("abcdbabdcbed")
 
@@ -580,21 +607,21 @@ function charCount_kamleshVersion01(string) {
 
 // console.log(charCount);
 
- //3) Get the value of email by destructuring
- const user = {
-    name: "Ketan",
-    age: 39
-}
+//3) Get the value of email by destructuring
+const user = {
+  name: "Ketan",
+  age: 39,
+};
 
 //Shallow Cop to Deep copy
 const user_deep = {
-    name: "Ketan",
-    age: 39
-}
+  name: "Ketan",
+  age: 39,
+};
 
 //let user2 = Object.assign({},user_deep);
 //let user2 = JSON.parse(JSON.stringify(user_deep));
-let user2 = {...user_deep}
+let user2 = { ...user_deep };
 //user2.name = "Dishant"
 //console.log(user_deep, user2);
 
@@ -620,7 +647,7 @@ let user2 = {...user_deep}
 //         let now = new Date().getTime();
 //         if(now - last < d) return;
 //             last = now;
-//             return cb(...args);        
+//             return cb(...args);
 //     };
 // };
 
@@ -632,8 +659,18 @@ let user2 = {...user_deep}
 //   .map(_ => items.splice(0, n))
 //   console.log(result)
 
+//========================================
+// L1- CGEMJP00325134 React JS KETAN SAWANT-9924297347
+// Friday, January 16 16:30 – 17:30
+// capgemini.com
+
+// Mphasis_L1 interview_React JS_Ketan Sawant
+// Saturday, January 17 11:30 – 12:00
+// se.nisaanth@mphasis.com
+// mphasis.com
+//========================================
 // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// const chunkSize = 3; 
+// const chunkSize = 3;
 // const chunks = [];
 
 // for (let i = 0; i < arr.length; i += chunkSize) {
@@ -646,81 +683,81 @@ let user2 = {...user_deep}
 //React.js_ Interview Request _ Synechron Technologies_ Ketan Sawant
 //Monday, 27 February⋅17:30 – 18:00
 //print state name, population and patients
-  const data = [
-    {
-      name: "goa",
-      population: 1000,
-      isValid: false
-    },
-    {
-      name: "maharashtra",
-      population: 100000,
-      isValid: false
-    },
-    {
-      name: "Kerala",
-      population: 1000,
-      isValid: false
-    },
-    {
-      name: "Delhi",
-      population: 100000,
-      isValid: false
-    },
-    {
-      name: "Kolkata",
+const data = [
+  {
+    name: "goa",
+    population: 1000,
+    isValid: false,
+  },
+  {
+    name: "maharashtra",
+    population: 100000,
+    isValid: false,
+  },
+  {
+    name: "Kerala",
+    population: 1000,
+    isValid: false,
+  },
+  {
+    name: "Delhi",
+    population: 100000,
+    isValid: false,
+  },
+  {
+    name: "Kolkata",
 
-      population: 1000,
+    population: 1000,
 
-      isValid: false
-    },
-    {
-      name: "UP",
+    isValid: false,
+  },
+  {
+    name: "UP",
 
-      population: 100000,
+    population: 100000,
 
-      isValid: false
-    },
+    isValid: false,
+  },
 
-    {
-      name: "Sikkim",
+  {
+    name: "Sikkim",
 
-      population: 1000,
+    population: 1000,
 
-      isValid: true
-    },
-    {
-      name: "Ladakh",
+    isValid: true,
+  },
+  {
+    name: "Ladakh",
 
-      population: 100000,
+    population: 100000,
 
-      isValid: true
-    }
-  ];
+    isValid: true,
+  },
+];
 
-  const covid_count = [
-    {
-      name: "Kolkata",
+const covid_count = [
+  {
+    name: "Kolkata",
 
-      patients: 20
-    },
-    {
-      name: "UP",
+    patients: 20,
+  },
+  {
+    name: "UP",
 
-      patients: 100
-    },
+    patients: 100,
+  },
 
-    {
-      name: "Sikkim",
+  {
+    name: "Sikkim",
 
-      patients: 10
-    },
-    {
-      name: "Ladakh",
+    patients: 10,
+  },
+  {
+    name: "Ladakh",
 
-      patients: 10
-    }
-  ]
+    patients: 10,
+  },
+];
 
 //   var newData = covid_count.map((state) => {
 //     let populationData = data.filter((sta) => sta.name === state.name);
@@ -737,12 +774,13 @@ let user2 = {...user_deep}
 
 //Or
 
-const updatedData = covid_count.map((item)=>{
-    const population = data.filter((data)=> data.name === item.name)[0].population
-    const newData = {...item, population}
-    return newData
-})
-console.log(updatedData)
+const updatedData = covid_count.map((item) => {
+  const population = data.filter((data) => data.name === item.name)[0]
+    .population;
+  const newData = { ...item, population };
+  return newData;
+});
+console.log(updatedData);
 
 //Video-Conference: Technical 1 of SENIOR TECHNICAL MEMBER
 //Thursday, May 9⋅12:00 – 12:30
@@ -758,18 +796,18 @@ console.log(updatedData)
 // [12:04 PM] Nikita Agarwal
 // Q #2.
 let people = [
-    {name: 'Alice',age: 21},
-    {name: 'MAX', age: 20}, 
-    {name: 'Jane', age: 20}
-    ];
-let propleGroup = []
+  { name: "Alice", age: 21 },
+  { name: "MAX", age: 20 },
+  { name: "Jane", age: 20 },
+];
+let propleGroup = [];
 
-people.forEach((item)=>{
- const{name, age}=item
- propleGroup =  people.filter((fitem)=> fitem.age === age)
-})
+people.forEach((item) => {
+  const { name, age } = item;
+  propleGroup = people.filter((fitem) => fitem.age === age);
+});
 
-console.log(propleGroup)
+console.log(propleGroup);
 
 // Or
 // duplicateData = people.reduce((acc,cur)=>{
@@ -780,19 +818,23 @@ console.log(propleGroup)
 // console.log(duplicateData);
 
 // Q #3. count book
-let frnds = [{
-	name: 'Anna',
-	books: ['Bible', 'Harry potter'],
-	age: 21
-}, {
-	name: 'Bob',
-	books: ['war and peace', 'Romeo and juliet'],
-	age: 26
-}, {
-	name: 'Alice',
-	books: ['The lord of the rings', 'the shining'],
-	age: 18
-}]
+let frnds = [
+  {
+    name: "Anna",
+    books: ["Bible", "Harry potter"],
+    age: 21,
+  },
+  {
+    name: "Bob",
+    books: ["war and peace", "Romeo and juliet"],
+    age: 26,
+  },
+  {
+    name: "Alice",
+    books: ["The lord of the rings", "the shining"],
+    age: 18,
+  },
+];
 
 // const newBooks = frnds.reduce((acc, curr)=>[...acc, curr.books],[])
 // const newBookArray = newBooks.flat()
@@ -806,7 +848,7 @@ let frnds = [{
 // total this by using reduce
 // Note key are Same
 // const foo = [{a:1},{a:2},{a:3}];
-// const total = foo.reduce((acc, crr)=>{ 
+// const total = foo.reduce((acc, crr)=>{
 //    console.log("acc", acc)
 //    console.log("crr", crr.a)
 //    acc += crr.a
@@ -817,7 +859,7 @@ let frnds = [{
 // total this by using reduce
 // Note key are deffrent
 // const foo = [{a:1},{b:2},{c:3}];
-// const total = foo.reduce((acc, crr)=>{ 
+// const total = foo.reduce((acc, crr)=>{
 //    console.log("acc", acc)
 //    console.log("crr", Object.values(crr)[0])
 //    acc.total += Object.values(crr)[0]
@@ -834,27 +876,27 @@ let frnds = [{
 //========================================
 
 // Ignore blank spaces
-function charCount(string){
-    const strArray =  string.replace(/\s+/g,'');
-    //const countChar = [...strArray].filter((item)=> item !== " ").reduce((acc, crr)=>{
-    const countChar = [...strArray].reduce((acc, crr)=>{
-        if(!acc[crr]) acc[crr]=0;
-        acc[crr]++
-        return acc
-    },{})
-    
-    console.log(countChar)
+function charCount(string) {
+  const strArray = string.replace(/\s+/g, "");
+  //const countChar = [...strArray].filter((item)=> item !== " ").reduce((acc, crr)=>{
+  const countChar = [...strArray].reduce((acc, crr) => {
+    if (!acc[crr]) acc[crr] = 0;
+    acc[crr]++;
+    return acc;
+  }, {});
+
+  console.log(countChar);
 }
 //charCount("abc dbabdc bed")
 
-//find avg of array data 
-var arr = [25,36,85,74,15,36,95]
+//find avg of array data
+var arr = [25, 36, 85, 74, 15, 36, 95];
 
-var totalOfArr = arr.reduce((acc, cur)=>{
-    acc+=cur
-    return acc
-},0)
-var avg = Math.round(totalOfArr/arr.length)
+var totalOfArr = arr.reduce((acc, cur) => {
+  acc += cur;
+  return acc;
+}, 0);
+var avg = Math.round(totalOfArr / arr.length);
 //console.log(avg)
 
 // Ketan Sawant - FE -R2 - eventbeep
@@ -864,13 +906,12 @@ var avg = Math.round(totalOfArr/arr.length)
 //========================================
 
 // #1. Reverse string
-var string = "ketan dattatraya sawant"
+var string = "ketan dattatraya sawant";
 // string to array
-var strArray = string.split(' ')
+var strArray = string.split(" ");
 // reverse array
-var revStrArray = strArray.reverse().join(" ")
-console.log(revStrArray)
-
+var revStrArray = strArray.reverse().join(" ");
+console.log(revStrArray); //sawant dattatraya ketan
 
 //The gate Way corp
 //Wednesday, August 28⋅16:00 – 17:00
@@ -878,17 +919,19 @@ console.log(revStrArray)
 //dimple.tiwari@thegatewaycorp.com or call me on +916359884716.
 //========================================
 
-//6. Write a piece of code for the following problem and analyze its complexity: 
+//6. Write a piece of code for the following problem and analyze its complexity:
 //Given an array of distinct integers and a target sum, find two numbers in the array that add up to the target sum.
 function findTwoSum(nums, target) {
+  const result = [];
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       console.log(i + " : " + j);
       if (nums[i] + nums[j] == target) {
-        return [nums[i], nums[j]];
+        result.push([nums[i], nums[j]]);
       }
     }
   }
+  return result;
 }
 
 console.log(findTwoSum([7, 11, 15, 2], 26));
@@ -975,9 +1018,9 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 // var month_diff = Date.now() - dob.getTime();
 
 // //convert the calculated difference in date format
-// var age_dt = new Date(month_diff); 
+// var age_dt = new Date(month_diff);
 
-// //extract year from date    
+// //extract year from date
 // var year = age_dt.getUTCFullYear();
 
 // //now calculate the age of the user
@@ -1014,7 +1057,7 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 // consecutive 1's in binary
 // array arr[0..n-1]
 // function getMaxLength(arr, n) {
-//     
+//
 //      // initialize count
 //      let count = 0;
 
@@ -1069,39 +1112,38 @@ console.log(findTwoSum([5, 3, 5, 7], 10));
 //ketandutt@gmail.com
 //Sat Oct 12, 2024 20:00 – 21:00 (IST)
 //======================================
-let array = [85,32,95,45,25,1,62]
+let array = [85, 32, 95, 45, 25, 1, 62];
 
-function sortMeth(arr){
-    
-    for(let i = 0; i<arr.length; i++){
-        for(let j = 0; j<(arr.length - i - 1); j++){
-            var temVar
-            if(arr[j]>arr[j+1]){
-               temVar =  arr[j];
-               arr[j] = arr[j+1]
-               arr[j+1] = temVar
-            }
-        }
+function sortMeth(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      var temVar;
+      if (arr[j] > arr[j + 1]) {
+        temVar = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temVar;
+      }
     }
-    return arr
+  }
+  return arr;
 }
 
-console.log(sortMeth(array))
+console.log(sortMeth(array));
 
-function secondLag(arr){
-    arr.pop()
-    let sed_maxNumber = Math.max.apply(null, arr);
-    console.log(sed_maxNumber)
+function secondLag(arr) {
+  arr.pop();
+  let sed_maxNumber = Math.max.apply(null, arr);
+  console.log(sed_maxNumber);
 }
 
 secondLag(array);
 
-(function(){
-  	  var a = b = 3;
-	})();
-    
-console.log("a defined? " + (typeof a !== 'undefined')); //false
-console.log("b defined? " + (typeof b !== 'undefined')); // true
+(function () {
+  var a = (b = 3);
+})();
+
+console.log("a defined? " + (typeof a !== "undefined")); //false
+console.log("b defined? " + (typeof b !== "undefined")); // true
 
 //Ketan Daddatraya Sawant - React + Typescript - Discussion
 //Thursday, 17 October⋅15:15 – 16:15
@@ -1115,55 +1157,54 @@ let array = [1, 2, 3, 4, 5];
 // Remove item at index 2
 array.splice(2, 1);
 
-console.log(array); 
+console.log(array);
 
 //#1 create promise and print console like as below
 //1
 //22
 //333
-console.log("1")
-const promise = new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-        resolve('done')
-        console.log("22")
-    },200)
-})
-promise.then(()=> console.log("333"))
-
+console.log("1");
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("done");
+    console.log("22");
+  }, 200);
+});
+promise.then(() => console.log("333"));
 
 //======================================
 // Interview scheduled with Hexaware Technologies
-// Hexaware Technologies via GLIDER.ai - Ketan Sawant[sawant.megha1980@gmail.com] (React js) 
+// Hexaware Technologies via GLIDER.ai - Ketan Sawant[sawant.megha1980@gmail.com] (React js)
 // HR: Shubham (Hexaware Technologies), Pammal: ashish.vadhwa@netweb.biz
 //Tue Dec 3, 2024 3pm – 3:45pm (IST)
 //======================================
-function findMaxChar(str, char){
-    let strArray = [...str]
-    let lengthOfStr = strArray.filter((item)=> item === char).length
-    if(lengthOfStr>1){
-        return true
-    }else{
-        return false
-    }
+function findMaxChar(str, char) {
+  let strArray = [...str];
+  let lengthOfStr = strArray.filter((item) => item === char).length;
+  if (lengthOfStr > 1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-console.log(findMaxChar("aabbbcceeem", "k")) //false
-console.log(findMaxChar("aabbbcceeem", "m")) //false
-console.log(findMaxChar("aabbbcceeem", "a")) //true
+console.log(findMaxChar("aabbbcceeem", "k")); //false
+console.log(findMaxChar("aabbbcceeem", "m")); //false
+console.log(findMaxChar("aabbbcceeem", "a")); //true
 
 //======================================
 // find capital character in the string
 //======================================
-let str="Ketan Sawant"
+let str = "Ketan Sawant";
 
-function capIndex(string){
-    let capArray = []
-   for(let i = 0; i<string.length; i++){
-      if(string[i] === string[i].toUpperCase() && string[i] !==" " ){ 
-          capArray.push(i);
-      }
-   }
-   return capArray
+function capIndex(string) {
+  let capArray = [];
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === string[i].toUpperCase() && string[i] !== " ") {
+      capArray.push(i);
+    }
+  }
+  return capArray;
 }
 
 //OR
@@ -1181,17 +1222,17 @@ function capIndex(string){
 //=======================================
 
 //#1.)
-const arr = [1,2,3,4,5]
-console.log(typeof arr) //object
+const arr = [1, 2, 3, 4, 5];
+console.log(typeof arr); //object
 
 //#2.)
 function wait(delay) {
- const promiss = new Promise((resolve, reject)=>{
-     setTimeout(()=>{
-         resolve(delay)
-     },delay)
- })
- return promiss
+  const promiss = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(delay);
+    }, delay);
+  });
+  return promiss;
 }
 
 wait(1000).then((delay) => console.log(`executed after ${delay} milliseconds`)); // executed after 100 milliseconds //
@@ -1203,23 +1244,23 @@ wait(1000).then((delay) => console.log(`executed after ${delay} milliseconds`));
 // HR: rashmidoshi@virtusa.com, Pammal:vaishalimanvar@virtusa.com
 //=======================================
 
-let s1 = "geeks";  
+let s1 = "geeks";
 let s2 = "kseeg";
 
-function string(str1, str2){
-    let strArray01 = str1.toLowerCase();
-    let strArray02 = str2.toLowerCase();
-    
-    let newStringA = [...strArray01].sort().join("")
-    let newStringB = [...strArray02].sort().join("")
-    
-    if(newStringA === newStringB){
-        return true;
-    }else{
-        return false;
-    }
+function string(str1, str2) {
+  let strArray01 = str1.toLowerCase();
+  let strArray02 = str2.toLowerCase();
+
+  let newStringA = [...strArray01].sort().join("");
+  let newStringB = [...strArray02].sort().join("");
+
+  if (newStringA === newStringB) {
+    return true;
+  } else {
+    return false;
+  }
 }
-console.log(string(s1, s2)) //true
+console.log(string(s1, s2)); //true
 
 //=======================================
 // NTT Data L1 Interview - UI Developer - KETAN SAWANT
@@ -1227,64 +1268,67 @@ console.log(string(s1, s2)) //true
 // HR: saurabh.pandey@nttdata.com, Pammal:sitara.m@infosys.com
 //=======================================
 
-const string = 'My name is ketan';
+const string = "My name is ketan";
 
-function reverseString(str){
-   const strArray = str.split(" ")
-   const reverseTextArr = strArray.map((item)=>[...item].reverse().join(""))
-   return reverseTextArr.join(" ")
+function reverseString(str) {
+  const strArray = str.split(" ");
+  const reverseTextArr = strArray.map((item) => [...item].reverse().join(""));
+  return reverseTextArr.join(" ");
 }
-console.log(reverseString(string));//yM eman si natek
+console.log(reverseString(string)); //yM eman si natek
 
 //OR
 
-function reverseString(str){
-   const strArray = str.split(" ")
-   let returnStr = ""
-   for(var i = 0; i< strArray.length; i++){
-       returnStr += reverStr(strArray[i])+" "
-   }
-   return returnStr;
+function reverseString(str) {
+  const strArray = str.split(" ");
+  let returnStr = "";
+  for (var i = 0; i < strArray.length; i++) {
+    returnStr += reverStr(strArray[i]) + " ";
+  }
+  return returnStr;
 }
 
-function reverStr(str){
-   const strArray = [...str]
-   let strring=""
-   for(var i = (strArray.length - 1); i >= 0; i--){
-       strring += strArray[i]
-   }
-   return (strring)
+function reverStr(str) {
+  const strArray = [...str];
+  let strring = "";
+  for (var i = strArray.length - 1; i >= 0; i--) {
+    strring += strArray[i];
+  }
+  return strring;
 }
-console.log(reverseString(string));//yM eman si natek
+console.log(reverseString(string)); //yM eman si natek
 
 //=======================================
 // max and min repited charters
 //=======================================
-let string = "Online Javascript Editor free"
+let string = "Online Javascript Editor free";
 // let string = "Phir Wahi Raat Hai Khwab"
-function minMaxChar(str){
-    const chrObj = [...str].reduce((acc,cur) => {
-        if(!acc[cur]) acc[cur] = 0
-        acc[cur]++
-        return acc
-    },{});
-    
-    //create two array for value and keys
-    const objCountArray = Object.values(chrObj)
-    const objCharArray = Object.keys(chrObj)
-    
-    //max and min char repete number
-    const maxRep = Math.max.apply(null, objCountArray)
-    const minRep = Math.min.apply(null, objCountArray)
-    
-    //find maxnumber into array 
-    const maxInd = objCountArray.indexOf(maxRep)
-    const maxChr = objCharArray[maxInd]
-    
-    const minInd = objCountArray.indexOf(minRep)
-    const minChr = objCharArray[minInd]
-    
-    return [{maxChar: maxChr+" ("+maxRep+")"}, {minChar: minChr+" ("+minRep+")"}]
+function minMaxChar(str) {
+  const chrObj = [...str].reduce((acc, cur) => {
+    if (!acc[cur]) acc[cur] = 0;
+    acc[cur]++;
+    return acc;
+  }, {});
+
+  //create two array for value and keys
+  const objCountArray = Object.values(chrObj);
+  const objCharArray = Object.keys(chrObj);
+
+  //max and min char repete number
+  const maxRep = Math.max.apply(null, objCountArray);
+  const minRep = Math.min.apply(null, objCountArray);
+
+  //find maxnumber into array
+  const maxInd = objCountArray.indexOf(maxRep);
+  const maxChr = objCharArray[maxInd];
+
+  const minInd = objCountArray.indexOf(minRep);
+  const minChr = objCharArray[minInd];
+
+  return [
+    { maxChar: maxChr + " (" + maxRep + ")" },
+    { minChar: minChr + " (" + minRep + ")" },
+  ];
 }
 
 console.log(minMaxChar(string));
@@ -1294,16 +1338,16 @@ console.log(minMaxChar(string));
 // L1 Discussion-UI React Js-Ketan Sawant 9924297347
 // Monday, 13 October⋅15:30 – 16:00
 //=======================================
-// const match1 = [  
-// {name:'AAA', runs: 100},  
-// {name:'BBB', runs: 200},  
-// {name:'CCC', runs: 300},  
-// ];   
-// const match2 = [  
-// {name:'AAA', runs: 50},  
-// {name:'CCC', runs: 60},  
-// {name:'BBB', runs: 70},  
-// ];  
+// const match1 = [
+// {name:'AAA', runs: 100},
+// {name:'BBB', runs: 200},
+// {name:'CCC', runs: 300},
+// ];
+// const match2 = [
+// {name:'AAA', runs: 50},
+// {name:'CCC', runs: 60},
+// {name:'BBB', runs: 70},
+// ];
 
 // function totalRuns (m1, m2){
 //     const total = []
@@ -1319,12 +1363,12 @@ console.log(minMaxChar(string));
 // }
 // console.log(totalRuns(match1, match2))
 
-// // Output should be 
-// const total= [  
-// {name:'AAA', runs: 150},  
-// {name:'BBB', runs: 270},  
-// {name:'CCC', runs: 360},  
-// ];  
+// // Output should be
+// const total= [
+// {name:'AAA', runs: 150},
+// {name:'BBB', runs: 270},
+// {name:'CCC', runs: 360},
+// ];
 
 //=======================================
 // Company: tcs
@@ -1339,49 +1383,513 @@ console.log(minMaxChar(string));
 //     return acc
 // },{})
 // console.log(count)
- 
+
 //=======================================
 // Tempo Labs Assessment
 // Wednesday, October 15⋅19:00 – 20:15
 //=======================================
 //#1. convert object data to array
- let indiaSate = {  
-  "Gujarat": {
-	"capital":"Gandhinagar",
-	"Language": "Gujarati",
-	"districts":"33"
+let indiaSate = {
+  Gujarat: {
+    capital: "Gandhinagar",
+    Language: "Gujarati",
+    districts: "33",
   },
-  "Maharashtra": {
-	"capital":"Mumbai",
-	"Language": "Marathi",
-	"districts":"36"
+  Maharashtra: {
+    capital: "Mumbai",
+    Language: "Marathi",
+    districts: "36",
   },
   "Madhya Pradesh": {
-	"capital":"Bhopal",
-	"Language": "Hindi",
-	"districts":"51"
+    capital: "Bhopal",
+    Language: "Hindi",
+    districts: "51",
   },
-  "Punjab": {
-	"capital":"Chandigarh",
-	"Language": "Punjabi",
-	"districts":"22"
+  Punjab: {
+    capital: "Chandigarh",
+    Language: "Punjabi",
+    districts: "22",
   },
   "Tamil Nadu": {
-	"capital":"chennai",
-	"Language": "tamil",
-	"districts":"32"
+    capital: "chennai",
+    Language: "tamil",
+    districts: "32",
+  },
+};
+
+function ObjToArr(obj, custKey) {
+  let temArray = [];
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+  keys.forEach((key, i) => {
+    const data = { [custKey]: key, ...values[i] };
+    temArray.push(data);
+  });
+  return temArray;
+}
+
+console.log(ObjToArr(indiaSate, "state"));
+
+// Output
+//=======================================
+// [
+//   {
+//     state: 'Gujarat',
+//     capital: 'Gandhinagar',
+//     Language: 'Gujarati',
+//     districts: '33'
+//   },
+//   {
+//     state: 'Maharashtra',
+//     capital: 'Mumbai',
+//     Language: 'Marathi',
+//     districts: '36'
+//   },
+//   {
+//     state: 'Madhya Pradesh',
+//     capital: 'Bhopal',
+//     Language: 'Hindi',
+//     districts: '51'
+//   },
+//   {
+//     state: 'Punjab',
+
+//     capital: 'Chandigarh',
+//     Language: 'Punjabi',
+//     districts: '22'
+//   },
+//   {
+//     state: 'Tamil Nadu',
+//     capital: 'chennai',
+//     Language: 'tamil',
+//     districts: '32'
+//   }
+// ]
+
+//=======================================
+// Interview with Capco
+// Wednesday, 17 December 18:00 – 19:00
+// kurian.abraham@capco.com
+//=======================================
+let users = [
+  {
+    name: "A",
+    address: "aaa",
+    info: {
+      age: 24,
+      gender: "Male",
+    },
+  },
+  {
+    name: "B",
+    address: "bbb",
+    info: {
+      age: 30,
+      gender: "Male",
+    },
+  },
+  {
+    name: "C",
+    address: "ccc",
+  },
+];
+
+let tempObjeArray = [];
+
+users.map((item) => {
+  const { name, address, info } = item;
+  let temObj = { name: name, address: address };
+  if (info) {
+    Object.keys(info).map((key) => {
+      // property name is key and value is info[key]
+      temObj[key] = info[key];
+    });
   }
-}
+  tempObjeArray.push(temObj);
+});
 
-function ObjToArr(obj, custKey){
-    let temArray = []
-    const keys = Object.keys(obj)
-    const values = Object.values(obj)
-    keys.forEach((key, i)=>{
-        const data = {[custKey]:key,...values[i]}
-        temArray.push(data)
+console.log("tempObjeArray: ", tempObjeArray);
+
+function noNestProp(arr){
+    let temObjArr = []
+    arr.map((item) => {
+        const{info}=item
+        if(info){
+            delete item.info
+            temObjArr.push({...info, ...item})
+        }else{
+            temObjArr.push(item)
+        }
     })
-    return temArray
+    return temObjArr
+    
 }
 
-console.log(ObjToArr(indiaSate, "state"))
+console.log("tempObjeArray: ", noNestProp(users));
+
+
+//Output should be:
+// tempObjeArray: [
+//     {
+//         "name": "A",
+//         "address": "aaa",
+//         "age": 24,
+//         "gender": "Male"
+//     },
+//     {
+//         "name": "B",
+//         "address": "bbb",
+//         "age": 30,
+//         "gender": "Male"
+//     },
+//     {
+//         "name": "C",
+//         "address": "ccc"
+//     }
+// ]
+
+//=======================================
+// Meeting schedule for JPC - 316-React.Node-Ketan Sawant
+// Saturday, January 17 14:30 – 15:00
+// satenchauhan@gmail.com
+//=======================================
+
+// Remove zero from strings in array
+// let arr = ['101','1020','10300','10400','10050','10060','0108090','10.012050'];
+
+// let newArray = arr.map((item)=>{
+//     const curItem = [...item].filter((item)=> item !== "0");
+//     return curItem.join("")
+// })
+
+// console.log(newArray)
+
+// Expected output= ['11','12','13','14','15','16','189','1.125'];
+
+//=======================================
+// Mphasis_L1 interview_React JS_Ketan Sawant
+// Saturday, 17 January⋅11:30 – 12:00
+// se.nisaanth@mphasis.com
+//=======================================
+// group data by role
+const userData = [
+  { name: "Ketan", role: "admin" },
+  { name: "Dishant", role: "user" },
+  { name: "Pinakin", role: "admin" },
+  { name: "Megha", role: "user" },
+  { name: "Ketul", role: "test_user" },
+  { name: "Manish", role: "test_user" },
+];
+
+function filterData(data) {
+  let result = {};
+  data.map((item, inx, self) => {
+    const { role } = item;
+    if (!result[role]) {
+      result[role] = self.filter((item) => item.role === role);
+    }
+  });
+  return result;
+}
+
+console.log(filterData(userData));
+
+// output will be:
+// {
+//   admin: [
+//     { name: 'Ketan', role: 'admin' },
+//     { name: 'Pinakin', role: 'admin' }
+//   ],
+//   user: [
+//     { name: 'Dishant', role: 'user' },
+//     { name: 'Megha', role: 'user' }
+//   ],
+//   test_user: [
+//     { name: 'Ketul', role: 'test_user' },
+//     { name: 'Manish', role: 'test_user' }
+//   ]
+// }
+
+const strA = "dsfafaafatryggkgjgiyyouiwertwe";
+
+function maxAndminCountChar(str) {
+  const strObject = [...str.replace(/\s/g, "")].reduce((acc, cur) => {
+    if (!acc[cur]) acc[cur] = 0;
+    acc[cur]++;
+    return acc;
+  }, {});
+
+  const numberArray = Object.values(strObject);
+  const keysArray = Object.keys(strObject);
+
+  const maxChar = Math.max.apply(null, numberArray);
+  const minChar = Math.min.apply(null, numberArray);
+
+  const maxIndex = numberArray.indexOf(maxChar);
+  const minIndex = numberArray.indexOf(minChar);
+
+  return `Max repeat character is "${keysArray[maxIndex]}" times ${maxChar} min repeat character is "${keysArray[minIndex]}" times ${minChar}`;
+}
+
+console.log(maxAndminCountChar(strA));
+// Output:
+
+const strB = "HHello";
+
+function removeDuplicatChar(str) {
+  let result = {};
+  let updateStr = "";
+  for (char of str) {
+    if (!result[char]) {
+      updateStr += char;
+      result[char] = true;
+    }
+  }
+  return updateStr;
+}
+console.log(removeDuplicatChar(str));
+
+const array_AA = [1, [2, 3], [4, 5, 6], 8, 9];
+const array_BB = JSON.parse(JSON.stringify(array_AA));
+array_BB[1].push(10);
+console.log(array_AA); //[ 1, [ 2, 3 ], [ 4, 5, 6 ], 8, 9 ]
+console.log(array_BB); //[ 1, [ 2, 3, 10 ], [ 4, 5, 6 ], 8, 9 ]
+
+//=======================================
+// Mphasis India Interview - Ketan Sawant | React Js Developer | 1/28/2026 3:00:00 PM(India Standard Time)
+// Wednesday, 28 January⋅15:00 – 15:40
+//=======================================
+
+const orders = [
+  { id: 101, customer: "A", amount: 500, status: "completed" },
+  { id: 102, customer: "B", amount: 1200, status: "pending" },
+  { id: 103, customer: "C", amount: 700, status: "completed" },
+  { id: 101, customer: "A", amount: 500, status: "completed" }, // duplicate
+  { id: 104, customer: "D", amount: 1500, status: "completed" },
+  { id: 105, customer: "E", amount: 300, status: "cancelled" },
+];
+
+// Scenarios --
+
+// Remove Duplicates - Keep only first occurrence based on id.
+// Scenario 2 — Filter Completed Orders
+// Scenario 3 - Apply 10% discount if:amount >= 1000
+// Scenario 4 — Sort Orders By Final Amount (Descending)
+// Scenario 5 — Generate Summary Report
+// Return output format -
+
+// let outPut = {
+//  totalOrders: how many orders ,
+//  totalRevenue: addition of final amount,
+//  highValueOrders: [
+//    { id:104, customer:"D", finalAmount:1350 },
+//         { id:102, customer:"B", finalAmount:1080 }
+//  ],
+//  allOrders: [
+//    { id:104, customer:"D", finalAmount:1350 },
+//    { id:102, customer:"B", finalAmount:1080 },
+//    { id:103, customer:"C", finalAmount:700 }
+//  ]
+// }
+
+//Group by status
+// function filterData(arr){
+//     const result = {}
+//     arr.map((item, inx, self)=>{
+//     const {status} = item
+//         if(!result[status]){
+//             result[status] = self.filter(item => item.status === status)
+//         }
+//     })
+//     return result
+// }
+// console.log(filterData(orders))
+
+/* ------------------------------------
+   Scenario 1 — Remove Duplicates
+------------------------------------ */
+const uniqueOrders = [
+  ...new Map(orders.map((order) => [order.id, order])).values(),
+];
+
+/* ------------------------------------
+   Scenario 2 — Filter Completed Orders
+------------------------------------ */
+const completedOrders = uniqueOrders.filter(
+  (order) => order.status === "completed",
+);
+
+/* ------------------------------------
+   Scenario 3 — Apply 10% Discount
+------------------------------------ */
+const discountedOrders = completedOrders.map((order) => {
+  const finalAmount = order.amount >= 1000 ? order.amount * 0.9 : order.amount;
+
+  return {
+    id: order.id,
+    customer: order.customer,
+    finalAmount,
+  };
+});
+
+/* ------------------------------------
+   Scenario 4 — Sort by Final Amount (DESC)
+------------------------------------ */
+const sortedOrders = discountedOrders.sort(
+  (a, b) => b.finalAmount - a.finalAmount,
+);
+
+// Sort by customer
+const sortBycustomer = uniqueOrders.sort((a, b)=>a.customer.localeCompare(b.customer))
+console.log("finalAount:", sortBycustomer)
+
+/* ------------------------------------
+   Scenario 5 — Generate Summary Report
+------------------------------------ */
+const summary = {
+  totalOrders: sortedOrders.length,
+  totalRevenue: sortedOrders.reduce((sum, order) => sum + order.finalAmount, 0),
+  highValueOrders: sortedOrders.filter((order) => order.finalAmount >= 1000),
+  allOrders: sortedOrders,
+};
+
+console.log(summary);
+
+let outPut = {
+  totalOrders: 3,
+  totalRevenue: 3250,
+  highValueOrders: [{ id: 104, customer: "D", finalAmount: 1350 }],
+  allOrders: [
+    { id: 104, customer: "D", finalAmount: 1350 },
+    { id: 103, customer: "C", finalAmount: 700 },
+    { id: 101, customer: "A", finalAmount: 500 },
+  ],
+};
+/* ------------------------------------
+Company name : infosys 
+Interview Invite: Ketan | Candidate ID: 1006202612
+Saturday, 21 February 17:00 – 18:00
+------------------------------------ */
+// #1. write javascript function for toTitleCase
+
+function toTitlecase(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+console.log(toTitlecase("ketan dattatraya sawant"));
+// Output: Ketan Dattatraya Sawant
+
+/* ------------------------------------
+Company name :neoito.com
+KETAN SAWANT First Round Senior Frontend Developer
+Thursday, 26 March⋅15:00 – 15:30
+------------------------------------ */
+
+function camelize(str){
+    let strArray = str.split("-")
+    let retunStr=[];
+    strArray.map((char,i)=>{
+        if(i!==0){
+           let newcha = char.charAt(0).toUpperCase()+[...char].slice(1).join("");
+           retunStr.push(newcha)
+        }else{
+            retunStr.push(char)
+        }
+    })
+    return retunStr.join("")
+}
+
+console.log(camelize("my-name-ketan")); // output: myNameKetan
+
+/* ------------------------------------ 
+inbetween 1 to 4 find the number from array and return new array with those number
+*/
+let arr = [5, 3, 8, 1, 2, 2];
+
+function filterRange(arr, a, b){
+    let tempArr = []
+    arr.map((data)=>{
+        if(data>=a && data<=b){
+            tempArr.push(data);
+        }
+    });
+    return tempArr
+}
+
+console.log(filterRange(arr, 1, 4)) // [3, 1, 2, 2]
+/*------------------------------------ */
+let arr = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arr){
+   let updatedArr = arr.slice().sort(); //or [...arr].sort()
+   return updatedArr
+}
+
+let sorted = copySorted(arr);
+
+console.log( sorted ); // CSS, HTML, JavaScript
+console.log( arr ); // HTML, JavaScript, CSS (no changes)
+
+// Shuffle an array
+/*------------------------------------ */
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+let arr = [1, 2, 3];
+shuffle(arr);
+console.log(arr);   
+
+/* Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+Note: for this kata y isn't considered a vowel.
+------------------------------------ */
+// Function to check the Vowel
+function isVowel(ch) {
+  ch = ch.toUpperCase();
+  return ch == "A" || ch == "E" || ch == "I" || ch == "O" || ch == "U";
+}
+
+function disemvowel(str) {
+  return [...str].filter((itme)=>!isVowel(itme)).join("");
+}
+
+console.log(disemvowel("This website is for losers LOL!")) //Ths wbst s fr lsrs LL!
+
+/*------------------------------------
+ if we are to start our Tribonacci sequence with [1, 1, 1] as a starting input (AKA signature), we have this sequence:
+
+[1, 1 ,1, 3, 5, 9, 17, 31, ...]
+But what if we started with [0, 0, 1] as a signature? As starting with [0, 1] instead of [1, 1] basically shifts 
+the common Fibonacci sequence by once place, you may be tempted to think that we would get the same sequence 
+shifted by 2 places, but that is not the case and we would get:
+
+[0, 0, 1, 1, 2, 4, 7, 13, 24, ...]
+------------------------------------ */
+
+function solution(signature, n) {
+  // If n is 0, return an empty array as per requirements.
+  // If n < 3, return only the first n elements of the signature.
+  if (n < 3) {
+    return signature.slice(0, n);
+  }
+
+  // Initialize the result with the starting signature.
+ 
+  const result = [...signature];
+
+  // Start generating from index 3 up to n-1.
+  for (let i = 3; i < n; i++) {
+       console.log(i)
+    // Sum the last three elements in the array.
+    const nextValue = result[i - 1] + result[i - 2] + result[i - 3];
+    result.push(nextValue);
+  }
+
+  return result;
+}
+
+console.log(solution([1,2,3], 8)); // [   1,  2,  3,  6,  11, 20, 37, 68]
